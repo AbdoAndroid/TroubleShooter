@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F5608FF-DED2-4E57-A76A-76141E4A35C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TroubleShooter</RootNamespace>
+    <AssemblyName>TroubleShooter</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="StarRatingControl, Version=1.0.1815.42039, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\AhmedMohsen\Downloads\Compressed\StarRatingControlTester\bin\Release\StarRatingControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="frmAdd_App.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdd_App.Designer.cs">
+      <DependentUpon>frmAdd_App.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Build.cs" />
+    <Compile Include="frm_Build.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Build.Designer.cs">
+      <DependentUpon>frm_Build.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Implementor.cs" />
+    <Compile Include="frm_Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Notification.Designer.cs">
+      <DependentUpon>frm_Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddDev.Designer.cs">
+      <DependentUpon>frmAddStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSignIn.Designer.cs">
+      <DependentUpon>FrmSignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CatchBug.cs" />
+    <Compile Include="Computer_config.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="FrmNotSolvedProblems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNotSolvedProblems.Designer.cs">
+      <DependentUpon>FrmNotSolvedProblems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserError.Designer.cs">
+      <DependentUpon>frmUserError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Details.Designer.cs">
+      <DependentUpon>Frm_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Solution_Summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Solution_Summary.Designer.cs">
+      <DependentUpon>frm_Solution_Summary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenCapture.cs" />
+    <Compile Include="askforhelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="askforhelp.Designer.cs">
+      <DependentUpon>askforhelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solution.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmAddStaff.resx">
+      <DependentUpon>frmAddStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdd_App.resx">
+      <DependentUpon>frmAdd_App.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Build.resx">
+      <DependentUpon>frm_Build.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Notification.resx">
+      <DependentUpon>frm_Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNotSolvedProblems.resx">
+      <DependentUpon>FrmNotSolvedProblems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSignIn.resx">
+      <DependentUpon>FrmSignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserError.resx" />
+    <EmbeddedResource Include="Frm_Details.resx">
+      <DependentUpon>Frm_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Solution_Summary.resx">
+      <DependentUpon>frm_Solution_Summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="askforhelp.resx">
+      <DependentUpon>askforhelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="dllfiles\StarRatingControl.dll" />
+    <Content Include="Reports\rpt_Bug.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\rpt_Error.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PublicAdo\PublicAdo.csproj">
+      <Project>{a30c02e0-2733-44d2-9889-73936f07d50a}</Project>
+      <Name>PublicAdo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

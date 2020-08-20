@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TroubleShooter", "TroubleShooter\TroubleShooter.csproj", "{1F5608FF-DED2-4E57-A76A-76141E4A35C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicAdo", "PublicAdo\PublicAdo.csproj", "{A30C02E0-2733-44D2-9889-73936F07D50A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testapp", "Testapp\Testapp.csproj", "{E4D31733-0EE3-4FA8-9590-10E840FDB0D8}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://devserver:8080/tfs/researchanddevelopment
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TroubleShooter\\TroubleShooter.csproj
+		SccProjectName1 = TroubleShooter
+		SccLocalPath1 = TroubleShooter
+		SccProjectUniqueName2 = PublicAdo\\PublicAdo.csproj
+		SccProjectName2 = PublicAdo
+		SccLocalPath2 = PublicAdo
+		SccProjectUniqueName3 = Testapp\\Testapp.csproj
+		SccProjectName3 = Testapp
+		SccLocalPath3 = Testapp
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F5608FF-DED2-4E57-A76A-76141E4A35C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F5608FF-DED2-4E57-A76A-76141E4A35C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F5608FF-DED2-4E57-A76A-76141E4A35C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F5608FF-DED2-4E57-A76A-76141E4A35C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30C02E0-2733-44D2-9889-73936F07D50A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30C02E0-2733-44D2-9889-73936F07D50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30C02E0-2733-44D2-9889-73936F07D50A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30C02E0-2733-44D2-9889-73936F07D50A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4D31733-0EE3-4FA8-9590-10E840FDB0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D31733-0EE3-4FA8-9590-10E840FDB0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D31733-0EE3-4FA8-9590-10E840FDB0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D31733-0EE3-4FA8-9590-10E840FDB0D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

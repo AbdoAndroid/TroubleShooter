@@ -1,0 +1,3121 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>c# - Is catching general exceptions really a bad thing? - Programmers Stack Exchange</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/Sites/programmers/img/favicon.ico?v=28d2686ad0b9">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/Sites/programmers/img/apple-touch-icon.png?v=4ce8e2685a35">
+    <link rel="search" type="application/opensearchdescription+xml" title="Programmers Stack Exchange" href="http://programmers.stackexchange.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@StackProgrammer">
+    <meta name="twitter:domain" content="programmers.stackexchange.com">
+    <meta property="og:type" content="website">    
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/Sites/programmers/img/apple-touch-icon@2.png?v=8a6d048f3c78&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Is catching general exceptions really a bad thing?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I typically agree with most code analysis warnings, and I try to adhere to them. However, I'm having a harder time with this one:
+
+
+  CA1031: Do not catch general exception types
+
+
+I understand the ">
+    <meta property="og:url" content="http://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing">
+    <link rel="canonical" href="http://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing">
+
+    
+    
+    <script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/quant.js" async=""></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/beacon.js" async=""></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/analytics.js" async=""></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/ados" async="" type="text/javascript"></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/ados.js" async="" type="text/javascript"></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/jquery.js"></script>
+    <script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'Is catching general exceptions really a bad thing?'" href="http://programmers.stackexchange.com/feeds/question/164256">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:6,shownCommentCount:5,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:164256});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('131', '164256');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com,ws://qa.sockets.stackexchange.com');
+            StackExchange.realtime.subscribeToReputationNotifications('131');
+                StackExchange.realtime.subscribeToTopBarNotifications('131');
+        });
+    </script>
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1469971598,"routeName":"Questions/Show","site":{"name":"Programmers Stack Exchange","description":"Q&A for professional programmers interested in conceptual questions about software development","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdsB7sSAAAAAAzjgEF_Hd8vXv-C42sa_KyofaGR","recaptchaAudioLang":"en","enableNewTagCreationWarning":false,"insertSpaceAfterNameTabCompletion":false,"id":131,"enableInsertDocLinkDialog":false,"enableSocialMediaInSharePopup":true},"user":{"fkey":"47628c84107f20bd6b6fea59ea9495be","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true},"realtime":{"newest":true,"active":true,"tagged":true}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true},"tags":{},"flags":{},"snippets":{"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"218b927128e3","js/moderator.en.js":"4c6b90e021fb","js/full-anon.en.js":"2d7ee00d3ce2","js/full.en.js":"62d83cf8ef8e","js/wmd.en.js":"ab44f28d3ba1","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"a7228f24adb0","js/help.en.js":"a56fdf9b9ff2","js/tageditor.en.js":"9c6df10dabc4","js/tageditornew.en.js":"3a350acd9f03","js/inline-tag-editing.en.js":"4fa1a4a3339e","js/revisions.en.js":"47de10a8358f","js/review.en.js":"dc928fe127c5","js/tagsuggestions.en.js":"bc2c996faeda","js/post-validation.en.js":"9bf262e5e155","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"da957efa6725","js/keyboard-shortcuts.en.js":"c7d1d11f7223","js/external-editor.en.js":"34f78799ad2d"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+<script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/full-anon.js" async=""></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/post-validation.js" async=""></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/prettify-full.js" async=""></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/external-editor.js" async=""></script><script src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/adFeedback.js" type="text/javascript"></script><link href="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/adFeedback.css" rel="stylesheet"></head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    
+
+
+
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://programmers.stackexchange.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://programmers.blogoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+                    <a href="http://chat.stackexchange.com/?tab=site&amp;host=programmers.stackexchange.com" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://programmers.stackexchange.com/" class="current-site-link site-link js-gps-track" data-id="131" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-programmers" title="Programmers"></div>
+        Programmers
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.programmers.stackexchange.com/" class="site-link js-gps-track" data-id="133" data-gps-track="
+            site.switch({ target_site:133, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-programmersmeta" title="Programmers Meta"></div>
+        Programmers Meta
+    </a>
+
+                </li>
+        </ul>
+    </div>
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://programmers.stackexchange.com/users/signup?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fprogrammers.stackexchange.com%2fquestions%2f164256%2fis-catching-general-exceptions-really-a-bad-thing" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://programmers.stackexchange.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fprogrammers.stackexchange.com%2fquestions%2f164256%2fis-catching-general-exceptions-really-a-bad-thing" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+        <a href="http://blog.stackoverflow.com/" class="fr">company blog</a>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+                <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 158 Stack Exchange sites">
+                    <span class="hidden-text">Stack Exchange</span>
+                </a>
+
+    <a href="#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="#" class="topbar-icon icon-achievements yes-hover js-achievements-button" data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://programmers.stackexchange.com/users/signup?ssrc=head&amp;returnurl=http%3a%2f%2fprogrammers.stackexchange.com%2fquestions%2f164256%2fis-catching-general-exceptions-really-a-bad-thing" class="login-link">sign up</a>
+                                <a href="https://programmers.stackexchange.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fprogrammers.stackexchange.com%2fquestions%2f164256%2fis-catching-general-exceptions-really-a-bad-thing" class="login-link">log in</a>
+
+                            <a href="http://programmers.stackexchange.com/tour">tour</a>
+        <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+            help
+            <span class="triangle"></span>
+        </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://programmers.stackexchange.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://programmers.stackexchange.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="http://meta.programmers.stackexchange.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://business.stackoverflow.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                                            </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" placeholder="Search Q&amp;A" tabindex="1" autocomplete="off" maxlength="240" type="text">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://programmers.stackexchange.com/">
+                    Programmers
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://programmers.stackexchange.com/questions">Questions</a></li>
+                                                <li><a id="nav-tags" href="http://programmers.stackexchange.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://programmers.stackexchange.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://programmers.stackexchange.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://programmers.stackexchange.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://programmers.stackexchange.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/Sites/programmers/img/apple-touch-icon.png?v=4ce8e2685a35">
+
+
+    <div id="herobox">
+        <div id="hero-content">
+                <div id="close"><a title="click to minimize">_</a></div>
+            <div id="blurb">
+                Programmers Stack Exchange is a question and answer site
+ for professional programmers interested in conceptual questions about 
+software development. Join them; it only takes a minute:
+                <br>
+                <br>
+                <a href="http://programmers.stackexchange.com/users/signup?ssrc=hero&amp;returnurl=http%3a%2f%2fprogrammers.stackexchange.com%2fquestions%2f164256%2fis-catching-general-exceptions-really-a-bad-thing" id="tell-me-more" class="button">Sign up</a>
+            </div>
+            <div id="desc">
+                <b>Here's how it works:</b>
+                <ol id="hiw">
+                    <li id="q">Anybody can ask a question
+                    </li>
+                    <li id="an">Anybody can answer
+                    </li>
+                    <li id="b">The best answers are voted up and rise to the top
+                    </li>
+                </ol>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="http://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing" class="question-hyperlink">Is catching general exceptions really a bad thing?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="164256" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk1498138290",4).enableDynamicSiteSelection().setZone(29); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1498138290"><div style="background-image: url( data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== ); width: 1px; height: 1px; display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/i_002.gif" style="position:absolute;" height="0px" border="0" width="0px"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164256" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">37</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>9</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I typically agree with most code analysis warnings, and I try to 
+adhere to them. However, I'm having a harder time with this one:</p>
+
+<blockquote>
+  <p>CA1031: Do not catch general exception types</p>
+</blockquote>
+
+<p>I understand the rationale for this rule. But, in practice, if I want
+ to take the same action regardless of the exception thrown, why would I
+ handle each one specifically? Furthermore, if I handle specific 
+exceptions, what if the code I'm calling changes to throw a new 
+exception in the future? Now I have to change my code to handle that new
+ exception. Whereas if I simply caught <code>Exception</code> my code doesn't have to change.</p>
+
+<p>For example, if Foo calls Bar, and Foo needs to stop processing 
+regardless of the type of exception thrown by Bar, is there any 
+advantage in being specific about the type of exception I'm catching?</p>
+
+<p>Maybe a better example:</p>
+
+<pre style="" class="lang-cs prettyprint prettyprinted"><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="typ">Foo</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// Some logic here.</span><span class="pln">
+    </span><span class="typ">LogUtility</span><span class="pun">.</span><span class="typ">Log</span><span class="pun">(</span><span class="str">"some message"</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="typ">Log</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">try</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Actual logging here.</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> ex</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Eat it. Logging failures shouldn't stop us from processing.</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>If you don't catch a general exception here, then you have to catch 
+every type of exception possible. Patrick has a good point that <code>OutOfMemoryException</code> shouldn't be dealt with this way. So what if I want to ignore every exception but <code>OutOfMemoryException</code>?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://programmers.stackexchange.com/questions/tagged/c%23" class="post-tag js-gps-track" title="show questions tagged 'c#'" rel="tag">c#</a> <a href="http://programmers.stackexchange.com/questions/tagged/design" class="post-tag js-gps-track" title="show questions tagged 'design'" rel="tag">design</a> <a href="http://programmers.stackexchange.com/questions/tagged/exceptions" class="post-tag js-gps-track" title="show questions tagged 'exceptions'" rel="tag">exceptions</a> <a href="http://programmers.stackexchange.com/questions/tagged/exception-handling" class="post-tag js-gps-track" title="show questions tagged 'exception-handling'" rel="tag">exception-handling</a> <a href="http://programmers.stackexchange.com/questions/tagged/code-analysis" class="post-tag js-gps-track" title="" rel="tag">code-analysis</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/q/164256" title="short permalink to this question" class="short-link" id="link-post-164256">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164256/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://programmers.stackexchange.com/posts/164256/revisions" title="show all edits to this post">edited <span title="2012-09-09 16:23:10Z" class="relativetime">Sep 9 '12 at 16:23</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2012-09-09 15:18:57Z" class="relativetime">Sep 9 '12 at 15:18</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/29526/bob-horn"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/e01f4ab4fa4ede8a7a23fe91ba902337.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/29526/bob-horn">Bob Horn</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">803</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164256" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-314640" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="warm">11</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What about <code>OutOfMemoryException</code>? Same handling code as everything else?</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/34336/patrick" title="1,607 reputation" class="comment-user">Patrick</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314640_164256"><span title="2012-09-09 15:23:34Z" class="relativetime-clean">Sep 9 '12 at 15:23</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314657" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Patrick Good point. I added a new example in my question to cover your question.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/29526/bob-horn" title="803 reputation" class="comment-user owner">Bob Horn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314657_164256"><span title="2012-09-09 16:23:30Z" class="relativetime-clean">Sep 9 '12 at 16:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-315772" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Catching general exceptions 
+is about as bad as making general statements about what you everyone 
+should do. There is generally no one-size-fits-all approach to 
+everything.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/37718/phong" title="305 reputation" class="comment-user">Phong</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment315772_164256"><span title="2012-09-13 17:40:00Z" class="relativetime-clean">Sep 13 '12 at 17:40</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-551282" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Patrick that would be <code>OutOfMemoryError</code>, which is separate from the <code>Exception</code> inheritance tree for that very reason</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/117191/darkhogg" title="103 reputation" class="comment-user">Darkhogg</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment551282_164256"><span title="2015-01-17 17:02:30Z" class="relativetime-clean">Jan 17 '15 at 17:02</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-554196" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What about keyboard exceptions, like Ctrl-Alt-Del?</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/979/mawg" title="1,368 reputation" class="comment-user">Mawg</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment554196_164256"><span title="2015-01-28 16:04:58Z" class="relativetime-clean">Jan 28 '15 at 16:04</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164256" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								11 Answers
+                                <span style="display:none;" itemprop="answerCount">11</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="http://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="http://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="164269"></a>
+<div id="answer-164269" class="answer accepted-answer" data-answerid="164269" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164269" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">21</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="The question owner accepted this as the best answer Sep 9 '12 at 22:51.">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>These rules are <strong>generally</strong> a good idea and thus should be followed.</p>
+
+<p><strong>But</strong> remember these are generic rules. They don't 
+cover all situations. They cover the most common situations. If you have
+ a specific situation and you can make the argument that your technique 
+is better (and you should be able to write a comment in the code to 
+articulate your argument for doing so) then do so (and then get it peer 
+reviewed).</p>
+
+<p>On the counter side of the argument.</p>
+
+<p>I don't see your example above as a good situation for doing so. If 
+the logging system is failing (presumably logging some other exception) 
+then I probably do not want the application to continue. Exit and print 
+the exception to the output so the user can see what happened.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164269" title="short permalink to this answer" class="short-link" id="link-post-164269">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164269/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://programmers.stackexchange.com/posts/164269/revisions" title="show all edits to this post">edited <span title="2012-09-09 18:58:47Z" class="relativetime">Sep 9 '12 at 18:58</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-09-09 17:23:22Z" class="relativetime">Sep 9 '12 at 17:23</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/12917/loki-astari"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/yaNYe.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/12917/loki-astari">Loki Astari</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">9,388</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="26 silver badges"><span class="badge2"></span><span class="badgecount">26</span></span><span title="57 bronze badges"><span class="badge3"></span><span class="badgecount">57</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164269" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-314734" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Concur. At the very <i>least</i>, now that regular logging is offline make some kind of provision that'll give <i>some</i> kind of debugging output, to STDERR if nothing else.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/20304/shadur" title="154 reputation" class="comment-user">Shadur</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314734_164269"><span title="2012-09-10 04:20:13Z" class="relativetime-clean">Sep 10 '12 at 4:20</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-539676" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I upvoted both of you, but I 
+think that you are thinking like developers, not users. A user generally
+ does not care whether logging is happening, so long as the application 
+is useable.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/979/mawg" title="1,368 reputation" class="comment-user">Mawg</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment539676_164269"><span title="2014-12-10 09:19:50Z" class="relativetime-clean">Dec 10 '14 at 9:19</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-611142" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Interesting, as log4net 
+explicitly doesn't want to stop the app just because logging fails.  And
+ i think it depends on what you're logging; security audits, sure, kill 
+the process.  But debug logs?  Not that important.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/24081/andy" title="589 reputation" class="comment-user">Andy</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment611142_164269"><span title="2015-08-26 18:02:54Z" class="relativetime-clean">Aug 26 '15 at 18:02</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-611144" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Andy: Yep everything depends on what you are doing.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/12917/loki-astari" title="9,388 reputation" class="comment-user">Loki Astari</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment611144_164269"><span title="2015-08-26 18:08:07Z" class="relativetime-clean">Aug 26 '15 at 18:08</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164269" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk762512758",4).enableDynamicSiteSelection().setZone(30); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk762512758"><div style="background-image: url( data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== ); width: 1px; height: 1px; display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/i_003.gif" style="position:absolute;" height="0px" border="0" width="0px"></div>
+  
+<a name="164262"></a>
+<div id="answer-164262" class="answer" data-answerid="164262" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164262" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">26</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Yes, catching general exceptions is a bad thing. An exception usually means that the program cannot do what you asked it to do.</p>
+
+<p>There are a few types of exceptions that you <em>could</em> handle:</p>
+
+<ul>
+<li><em>Fatal exceptions</em>: out of memory, stack overflow, etc. Some 
+supernatural force just messed up your universe and the process is 
+already dying. You cannot make the situation better so just give up</li>
+<li><em>Exception thrown because bugs in the code that you are using</em>: Don't try to handle them but rather fix the source of the problem. Don't use exceptions for flow control</li>
+<li><em>Exceptional situations</em>: Only handle exception in these 
+cases. Here we can include: network cable unplugged, internet connection
+ stopped working, missing permissions, etc.</li>
+</ul>
+
+<p>Oh, and as a general rule: if you don't know what to do with an 
+exception if you catch it, it is better to just fail fast (pass the 
+exception to caller and let it handle it)</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164262" title="short permalink to this answer" class="short-link" id="link-post-164262">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164262/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-09-09 15:58:49Z" class="relativetime">Sep 9 '12 at 15:58</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/782/victor-hurdugaci"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/cbf6917a7f41a098677c63e32bfba873.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/782/victor-hurdugaci">Victor Hurdugaci</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,803</span><span title="9 silver badges"><span class="badge2"></span><span class="badgecount">9</span></span><span title="20 bronze badges"><span class="badge3"></span><span class="badgecount">20</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164262" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="7" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-314671" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What about the specific case 
+in the question? If there is a bug in the logging code, it's probably 
+okay to ignore the exception, because the code that actually matters 
+shouldn't be affected by that.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/213/svick" title="7,378 reputation" class="comment-user">svick</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314671_164262"><span title="2012-09-09 17:52:13Z" class="relativetime-clean">Sep 9 '12 at 17:52</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314691" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Why not fix the bug in the logging code instead?</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/782/victor-hurdugaci" title="2,803 reputation" class="comment-user">Victor Hurdugaci</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314691_164262"><span title="2012-09-09 21:30:40Z" class="relativetime-clean">Sep 9 '12 at 21:30</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314703" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Victor, it's probably not a bug. If the disk the log lives on runs out of space, is that a bug in the logging code?</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/4217/carson63000" title="9,632 reputation" class="comment-user">Carson63000</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314703_164262"><span title="2012-09-10 00:05:38Z" class="relativetime-clean">Sep 10 '12 at 0:05</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314709" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Carson63000 - well, yes. The logs aren't being written, therefore: bug. Implement fixed size rotating logs.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/12878/detly" title="690 reputation" class="comment-user">detly</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314709_164262"><span title="2012-09-10 00:36:05Z" class="relativetime-clean">Sep 10 '12 at 0:36</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314720" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This is the best answer imo, but it is missing one crucial aspect: <b>security</b>.
+ There are some exceptions that occur as a result of the bad guys trying
+ to f-up your program. If an exception gets thrown that you are unable 
+to handle, then you cannot necessarily trust that code anymore. Nobody 
+likes to hear that they wrote the code that let the bad guys in.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/5039/stargazer712" title="6,353 reputation" class="comment-user">Stargazer712</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314720_164262"><span title="2012-09-10 02:04:54Z" class="relativetime-clean">Sep 10 '12 at 2:04</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164262" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>7</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="164264"></a>
+<div id="answer-164264" class="answer" data-answerid="164264" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164264" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">13</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The topmost outer loop should have one of these to print all it can, 
+and then die a horrific, violent and NOISY death (as this shouldn't 
+happen and someone needs to hear).</p>
+
+<p>Otherwise you should generally be very careful as you most likely have <em>not</em>
+ anticipated everything that could happen at this location, and hence 
+will most likely not treat it correctly.  Be as specific as possible so 
+you only catch those you <em>know</em> will happen, and let those not seen before bubble up to the above mentioned noisy death.  </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164264" title="short permalink to this answer" class="short-link" id="link-post-164264">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164264/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-09-09 16:18:34Z" class="relativetime">Sep 9 '12 at 16:18</span>
+    </div>
+    <div class="user-gravatar32">
+        <span class="anonymous-gravatar"></span>
+    </div>
+    <div class="user-details">
+        user1249
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164264" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="4" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-314659" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I agree with this in theory. 
+But what about my logging example above? What if you simple want to 
+ignore logging exceptions and continue? Should you need to catch every 
+exception that could be thrown and handle each of those while letting 
+the more serious exception bubble-up?</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/29526/bob-horn" title="803 reputation" class="comment-user owner">Bob Horn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314659_164264"><span title="2012-09-09 16:45:23Z" class="relativetime-clean">Sep 9 '12 at 16:45</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314667" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="warm">5</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@BobHorn: Two ways of looking
+ at that. Yes, you can say that logging isn't particularly important and
+ if it fails then it shouldn't bring your app to a halt. And that's a 
+fair enough point. But, what if your application fails to log for five 
+months and you had no idea? I've seen this happen. And then we needed 
+the logs. Disaster. I would suggest doing everything you can think of to
+ stop logging failing is better than ignoring it when it does. (But 
+you're not going to get much of a consensus on that.)</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/12828/pdr" title="46,198 reputation" class="comment-user">pdr</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314667_164264"><span title="2012-09-09 17:12:27Z" class="relativetime-clean">Sep 9 '12 at 17:12</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314668" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@pdr In my logging example, I
+ would typically send an email alert. Or, we have systems in place to 
+monitor logs, and if a log isn't being actively populated, our support 
+team would get an alert. So we'd become aware of the logging issue in 
+other ways.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/29526/bob-horn" title="803 reputation" class="comment-user owner">Bob Horn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314668_164264"><span title="2012-09-09 17:23:00Z" class="relativetime-clean">Sep 9 '12 at 17:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314669" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@BobHorn your logging example is rather contrived - most logging frameworks I know of, go to great length to <i>not</i> throw any exceptions <i>and</i> would not be invoked like that (as it would make any "log statement happened at line X in file Y" useless)</span>
+		            –&nbsp;<span class="comment-user">user1249</span>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314669_164264"><span title="2012-09-09 17:44:25Z" class="relativetime-clean">Sep 9 '12 at 17:44</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314670" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@pdr I've raised the question
+ at the logback list (Java) on how to make the logging framework halt 
+the application if logging configuration fails, simply because it is SO 
+important we have the logs, and any silent failure is unacceptable.  A 
+good solution is still pending.</span>
+		            –&nbsp;<span class="comment-user">user1249</span>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314670_164264"><span title="2012-09-09 17:46:56Z" class="relativetime-clean">Sep 9 '12 at 17:46</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164264" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>4</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="164263"></a>
+<div id="answer-164263" class="answer" data-answerid="164263" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164263" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">8</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>It's not that it's bad, it's just that specific catches are better.  <strong>When
+ you're specific, it means that you actually understand, more 
+concretely, what your application is doing, and have more control over 
+it.</strong>  In general, if you come upon a situation where you just 
+catch an Exception, log it and continue, there's probably some bad 
+things that are going on anyway.  <strong>If you're specifically 
+catching the exceptions that you know a code block or method can throw, 
+then there's a higher likelihood you can actually recover</strong> instead of just logging and hoping for the best.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164263" title="short permalink to this answer" class="short-link" id="link-post-164263">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164263/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://programmers.stackexchange.com/posts/164263/revisions" title="show all edits to this post">edited <span title="2015-08-26 15:18:07Z" class="relativetime">Aug 26 '15 at 15:18</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-09-09 16:02:35Z" class="relativetime">Sep 9 '12 at 16:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/1521/ryan-hayes"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/fc214b883b1c89fc2d391cb1ebf282b2.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/1521/ryan-hayes">Ryan Hayes</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 18,809" dir="ltr">18.8k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="58 silver badges"><span class="badge2"></span><span class="badgecount">58</span></span><span title="112 bronze badges"><span class="badge3"></span><span class="badgecount">112</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164263" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164263" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="164258"></a>
+<div id="answer-164258" class="answer" data-answerid="164258" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164258" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">5</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The two possibilities are not mutually exclusive.</p>
+
+<p>In an ideal situation, you would catch all possible types of 
+exception your method could generate, handle them on a per-exception 
+basis, and in the end add a general <code>catch</code> clause to catch any future or unknown exceptions. This way you get the best of both worlds.</p>
+
+<pre style="" class="lang-cs prettyprint prettyprinted"><code><span class="kwd">try</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">this</span><span class="pun">.</span><span class="typ">Foo</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">BarException</span><span class="pln"> ex</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Foo has barred!"</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">BazException</span><span class="pln"> ex</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Foo has bazzed!"</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> ex</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Unknown exception on Foo!"</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">throw</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Keep in mind that in order to catch the more specific exceptions, you must put them first.</p>
+
+<p>Edit: For reasons stated in the comments, added a rethrow in the last catch.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164258" title="short permalink to this answer" class="short-link" id="link-post-164258">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164258/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://programmers.stackexchange.com/posts/164258/revisions" title="show all edits to this post">edited <span title="2012-09-09 16:21:53Z" class="relativetime">Sep 9 '12 at 16:21</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-09-09 15:24:25Z" class="relativetime">Sep 9 '12 at 15:24</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/54568/rotem"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/7nJGt.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/54568/rotem">Rotem</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,141</span><span title="9 silver badges"><span class="badge2"></span><span class="badgecount">9</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164258" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="2" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-314649" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Wait. Why would you ever want
+ to log an unknown exception to console and carry on? If it's an 
+exception that you didn't even know could be thrown by the code, you're 
+probably talking about a system failure. Carrying on in this scenario is
+ probably a really bad idea.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/12828/pdr" title="46,198 reputation" class="comment-user">pdr</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314649_164258"><span title="2012-09-09 15:43:23Z" class="relativetime-clean">Sep 9 '12 at 15:43</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314650" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@pdr Surely you realize it's a
+ contrived example. The point was to demostrate catching of both 
+specific and general exceptions, not how to handle them.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/54568/rotem" title="1,141 reputation" class="comment-user">Rotem</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314650_164258"><span title="2012-09-09 15:48:56Z" class="relativetime-clean">Sep 9 '12 at 15:48</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314653" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Rotem I think you have a 
+good answer here. But pdr has a point. The code, as is, makes it look 
+like catching and continuing is fine. Some beginner, seeing this 
+example, might think that's a good approach.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/29526/bob-horn" title="803 reputation" class="comment-user owner">Bob Horn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314653_164258"><span title="2012-09-09 16:14:52Z" class="relativetime-clean">Sep 9 '12 at 16:14</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314654" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Contrived or not, it makes 
+your answer wrong. As soon as you start catching exceptions like Out Of 
+Memory and Disk Full and just swallowing them, you're proving why 
+catching general exceptions is in fact bad.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/12828/pdr" title="46,198 reputation" class="comment-user">pdr</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314654_164258"><span title="2012-09-09 16:16:40Z" class="relativetime-clean">Sep 9 '12 at 16:16</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-314655" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">If you catch a general exception only to log it, then you should rethrow it after logging.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/782/victor-hurdugaci" title="2,803 reputation" class="comment-user">Victor Hurdugaci</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment314655_164258"><span title="2012-09-09 16:20:20Z" class="relativetime-clean">Sep 9 '12 at 16:20</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164258" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>2</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="164260"></a>
+<div id="answer-164260" class="answer" data-answerid="164260" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164260" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">3</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Pokemon exception handling (gotta catch em all!) is certainly not 
+always bad. When your exposing a method to a client, especially an end 
+user its often better to catch anything and everything rather than have 
+your application crash and burn.</p>
+
+<p>Generally though they should be avoided where you can. Unless you can
+ take specific action based on the type of the exception its better not 
+to handle it and allow the exception to bubble up rather then swallow 
+the exception or handle it incorrectly.</p>
+
+<p>Have a look at <a href="http://stackoverflow.com/questions/21938/is-it-really-that-bad-to-catch-a-general-exception">this</a> SO answer for more reading.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164260" title="short permalink to this answer" class="short-link" id="link-post-164260">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164260/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-09-09 15:37:52Z" class="relativetime">Sep 9 '12 at 15:37</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/29270/tom-squires"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/ee41a66db55742df2a897380a619ca6a.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/29270/tom-squires">Tom Squires</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 13,496" dir="ltr">13.5k</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="49 silver badges"><span class="badge2"></span><span class="badgecount">49</span></span><span title="81 bronze badges"><span class="badge3"></span><span class="badgecount">81</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164260" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-460446" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This situation (when a 
+developer must be a Pokemon Trainer) appears when you are making an 
+entire software yourself: you made the layers, database connections and 
+user's GUI. Your app must recover from situations like connectivity 
+lost, user´s folder deleted, data corrupted, etc. End Users don't like 
+apps that crash and burn. They like apps that can work on a burning 
+exploding crashing computer!</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/23470/broken-window" title="167 reputation" class="comment-user">Broken_Window</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment460446_164260"><span title="2014-03-03 16:00:58Z" class="relativetime-clean">Mar 3 '14 at 16:00</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-469515" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I hadn't thought of this 
+until now, but in Pokemon, it's generally assumed that by 'catch them 
+all' you want exactly one of each, and have to handle catching it 
+specifically, which is the opposite of the common use of this phrase 
+among programmers.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/119813/magus" title="465 reputation" class="comment-user">Magus</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment469515_164260"><span title="2014-04-03 19:45:54Z" class="relativetime-clean">Apr 3 '14 at 19:45</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-497358" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Magus: With a method like <code>LoadDocument()</code>,
+ it's essentially impossible to identify all the things that might go 
+wrong, but 99% of exceptions that could be thrown will simply mean "It 
+was not possible to interpret the contents of a file with the given name
+ as a document; deal with it."  If someone tries to open something that 
+isn't a valid document file, that shouldn't crash the application and 
+kill any other open documents.  Pokemon error handling in such cases is 
+ugly, but I don't know any good alternatives.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/58581/supercat" title="5,019 reputation" class="comment-user">supercat</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment497358_164260"><span title="2014-07-09 20:53:11Z" class="relativetime-clean">Jul 9 '14 at 20:53</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-497390" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@supercat: I was just making a
+ linguistic point. However, I don't think invalid file contents sound 
+like something that should throw more than one kind of exception.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/119813/magus" title="465 reputation" class="comment-user">Magus</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment497390_164260"><span title="2014-07-09 22:56:34Z" class="relativetime-clean">Jul 9 '14 at 22:56</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-497391" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Magus: It can throw all 
+sorts of exceptions--that's the problem.  It's often very difficult to 
+anticipate all the kinds of exceptions that might get thrown as a 
+consequence of invalid data in a file.  If one doesn't use PokeMon 
+handling, one risks having an application die because e.g. the file one 
+was loading contained an exceptionally-long string of digits in a place 
+which required a decimal-formatted 32-bit integer, and a numerical 
+overflow occurred in the parsing logic.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/58581/supercat" title="5,019 reputation" class="comment-user">supercat</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment497391_164260"><span title="2014-07-09 23:02:47Z" class="relativetime-clean">Jul 9 '14 at 23:02</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164260" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="264977"></a>
+<div id="answer-264977" class="answer" data-answerid="264977" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="264977" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I have been pondering the same recently, and my tentative conclusion is that the mere question arises because the <a href="http://msdn.microsoft.com/en-us/library/z4c5tckx%28v=vs.110%29.aspx" rel="nofollow">.NET Exception hierarchy</a> is severely messed up.</p>
+
+<p>Take, for example, the lowly <a href="http://msdn.microsoft.com/en-us/library/system.argumentnullexception%28v=vs.110%29.aspx" rel="nofollow"><code>ArgumentNullException</code></a> which <em>might</em> be a reasonable candidate for an exception you <em>don't</em> want to catch, because it <em>tends</em> to indicate a bug in the code rather than a legitimate runtime error. Ah yes. So does <a href="http://msdn.microsoft.com/en-us/library/system.nullreferenceexception%28v=vs.110%29.aspx" rel="nofollow"><code>NullReferenceException</code></a>, except that <code>NullReferenceException</code> does derive from <code>SystemException</code> directly, so there's no bucket you can place all "logical errors" into to catch (or not catch).</p>
+
+<p><strike><em>Then</em> there is the IMNSHO <em>major</em> botch of having <a href="http://msdn.microsoft.com/en-us/library/system.runtime.interopservices.sehexception%28v=vs.110%29.aspx" rel="nofollow"><code>SEHException</code></a> derive (via <code>ExternalException</code>) <code>SystemException</code> and thus make it a "normal" <code>SystemException</code></strike> When you get an <code>SEHException</code>, you want to write a dump and terminate as fast as you can -- and starting with .NET 4 at least <em>some</em> SEH exceptions are considered <a href="http://dotnetslackers.com/articles/net/All-about-Corrupted-State-Exceptions-in-NET4.aspx" rel="nofollow">Corrupted State Exceptions</a> that will not be caught. A good thing, and a fact that makes the <code>CA1031</code> rule even more useless, because now your lazy <code>catch (Exception)</code> will not catch these worst types anyway.</p>
+
+<p>Then, it seems that the other Framework stuff rather inconsistently derives either <code>Exception</code> directly <em>or</em> via <code>SystemException</code>, making any attempt at grouping catch-clauses by something like severity moot.</p>
+
+<p>There's a piece by Mr. Lippert of <code>C#</code> fame, called <a href="http://blogs.msdn.com/b/ericlippert/archive/2008/09/10/vexing-exceptions.aspx" rel="nofollow">Vexing Exception</a>,
+ where he lays out some useful categorization of exceptions: You could 
+argue you only want to catch "exogenous" ones, except ... <code>C#</code>
+ the language and the design of the .NET framework exceptions make it 
+impossible to "catch only exogenous ones" in any succinct manner. <sub>(and, e.g, an <code>OutOfMemoryException</code> may <em>very well</em> be a totally normal recoverable error for an API that has to allocate buffers that are somehow large)</sub></p>
+
+<p>Bottom line for me is, that <strong>the way <code>C#</code> catch blocks work and the way the Framework exception hierarchy is designed, rule <code>CA1031</code> is beyond totally useless</strong>. It <em>pretends</em>
+ to help with the root issue of "do not swallow exceptions" but 
+swallowing exceptions has zero to do with what you catch, but with what 
+you <em>then</em> do:</p>
+
+<p>There are <a href="http://msdn.microsoft.com/en-us/library/dn440728%28v=pandp.60%29.aspx#sec4" rel="nofollow"><em>at least</em> 4 ways</a> to legitimately handle a caught <code>Exception</code>, and <code>CA1031</code> only seems to superficially handle one of them (namely the re-throw case).</p>
+
+<hr>
+
+<p>As a side note, there's a C# 6 feature called <a href="http://stackoverflow.com/a/27082164/321013">Exception Filters</a> that will make <code>CA1031</code>
+ slightly more valid again since then you will be able to properly, 
+properly, properly filter the exceptions you want to catch, and there's 
+less reason to write an unfiltered <code>catch (Exception)</code>.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/264977" title="short permalink to this answer" class="short-link" id="link-post-264977">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/264977/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://programmers.stackexchange.com/posts/264977/revisions" title="show all edits to this post">edited <span title="2015-01-28 09:29:06Z" class="relativetime">Jan 28 '15 at 9:29</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-12-09 14:37:08Z" class="relativetime">Dec 9 '14 at 14:37</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/6559/martin-ba"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/256c9d534302a138d5d1fe3ed833e217.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/6559/martin-ba">Martin Ba</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,586</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="18 silver badges"><span class="badge2"></span><span class="badgecount">18</span></span><span title="41 bronze badges"><span class="badge3"></span><span class="badgecount">41</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-264977" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-576251" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">A major problem with <code>OutOfMemoryException</code>
+ is that there's no nice way code can be sure that it "only" indicates 
+the failure of a particular allocation one was prepared to have fail.  
+It's possible that some other more serious exception was thrown, and an <code>OutOfMemoryException</code>
+ occurred during stack unwinding from that other exception.  Java may 
+have been late to the party with its "try-with-resources", but it 
+handles exceptions during stack unwinding a bit better than .NET.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/58581/supercat" title="5,019 reputation" class="comment-user">supercat</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment576251_264977"><span title="2015-04-21 18:05:27Z" class="relativetime-clean">Apr 21 '15 at 18:05</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-576252" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@supercat - true enough, but 
+that's pretty much true of any other general System exception, when 
+stuff goes bad in any finally block.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/6559/martin-ba" title="3,586 reputation" class="comment-user">Martin Ba</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment576252_264977"><span title="2015-04-21 18:13:16Z" class="relativetime-clean">Apr 21 '15 at 18:13</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-576253" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">That's true, but one can (and generally should) guard <code>finally</code>
+ blocks against exceptions that one can realistically expect to occur in
+ such a way that the original and new exceptions both get logged.  
+Unfortunately, doing that will often require memory allocation, which 
+could cause failures of its own.</span>
+                    –&nbsp;<a href="http://programmers.stackexchange.com/users/58581/supercat" title="5,019 reputation" class="comment-user">supercat</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment576253_264977"><span title="2015-04-21 18:33:19Z" class="relativetime-clean">Apr 21 '15 at 18:33</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-264977" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="164272"></a>
+<div id="answer-164272" class="answer" data-answerid="164272" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164272" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Catching general exception is bad because it leaves your program in 
+an undefined state. You don't know where stuff went wrong so you don't 
+know what your program has actually done or hasn't done.</p>
+
+<p>Where I would allow catching all is when closing a program. As long 
+as you can clean it up alright. Nothing as annoying as a program you 
+close which just throws an error dialog that does nothing but sit there,
+ not going away and preventing your computer from closing down.</p>
+
+<p>In a distributed environment your log method could backfire: catching
+ a general exception could mean your program still holds a lock on the 
+log-file preventing other users from making logs.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164272" title="short permalink to this answer" class="short-link" id="link-post-164272">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164272/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-09-09 17:54:16Z" class="relativetime">Sep 9 '12 at 17:54</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/51367/pieter-b"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/84310b67c11b1f24ef73ffa0fa71f3d9.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/51367/pieter-b">Pieter B</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">6,611</span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="53 bronze badges"><span class="badge3"></span><span class="badgecount">53</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164272" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164272" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="164335"></a>
+<div id="answer-164335" class="answer" data-answerid="164335" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164335" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<blockquote>
+  <p>I understand the rationale for this rule. But, in practice, if I want
+  to take the same action regardless of the exception thrown, why would
+  I handle each one specifically?</p>
+</blockquote>
+
+<p>As others have said, it's really difficult (if not impossible) to 
+imagine some action that you'd want to take regardless of the exception 
+thrown. Just one example are situations where the program's state has 
+been corrupted and <em>any</em> further processing can lead to problems (this is the rationale behind <a href="http://msdn.microsoft.com/en-us/library/system.environment.failfast.aspx" rel="nofollow"><code>Environment.FailFast</code></a>).</p>
+
+<blockquote>
+  <p>Furthermore, if I handle specific exceptions, what if the code I'm
+  calling changes to throw a new exception in the future? Now I have to
+  change my code to handle that new exception. Whereas if I simply
+  caught Exception my code doesn't have to change.</p>
+</blockquote>
+
+<p>For hobby code it's just fine to catch <code>Exception</code>, but 
+for professional-grade code introducing a new exception type should be 
+treated with the same respect as a change in the method signature, i.e. 
+be considered a breaking change. If you subscribe to this point of view 
+then it's immediately obvious that going back to change (or verify) the 
+client code is the only correct course of action.</p>
+
+<blockquote>
+  <p>For example, if Foo calls Bar, and Foo needs to stop processing
+  regardless of the type of exception thrown by Bar, is there any
+  advantage in being specific about the type of exception I'm catching?</p>
+</blockquote>
+
+<p>Sure, because you will not be catching just exceptions thrown by <code>Bar</code>. There will also be exceptions that Bar's clients or even the runtime might throw during the time that <code>Bar</code> is on the call stack. A well-written <code>Bar</code> should define its own exception type if necessary so that callers can specifically catch the exceptions emitted by itself.</p>
+
+<blockquote>
+  <p>So what if I want to ignore every exception but OutOfMemoryException?</p>
+</blockquote>
+
+<p>IMHO this is the wrong way to think about exception handling. You 
+should be operating on whitelists (catch exception types A and B), not 
+on blacklists (catch all exceptions apart from X).</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164335" title="short permalink to this answer" class="short-link" id="link-post-164335">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164335/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-09-10 08:59:26Z" class="relativetime">Sep 10 '12 at 8:59</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/6204/jon"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/ec5f3a68cf0e3975bda7ffef185637ec.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/6204/jon">Jon</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">424</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164335" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164335" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="294650"></a>
+<div id="answer-294650" class="answer" data-answerid="294650" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="294650" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><strong>Maybe</strong>. There are exceptions to every rule, and no rule should be followed uncritically. You example <em>might</em>
+ conceivably be one of the instances where it makes sense to swallow all
+ exceptions. For example if you want to add tracing to a critical 
+production system, and you want to make absolutely sure that you changes
+ don't disrupt the main task of the app.</p>
+
+<p><strong>However</strong>, you should think carefully about possible 
+reasons for failure before you decide to silently ignore them all. For 
+example, what if the reason for the exception is:</p>
+
+<ul>
+<li>a programming error in the logging method which causes it to always throw a particular exception</li>
+<li>an invalid path to the logging file in the configuration</li>
+<li>the disk is full</li>
+</ul>
+
+<p>Don't you want to be notified immediately that this problem is 
+present, so you can fix it? Swallowing the exception means you never 
+know something went wrong.</p>
+
+<p>Some problems (like the disk is full) might also cause other parts of
+ the application to fail - but this failure is not logged now, so you 
+never know!</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/294650" title="short permalink to this answer" class="short-link" id="link-post-294650">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/294650/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://programmers.stackexchange.com/posts/294650/revisions" title="show all edits to this post">edited <span title="2015-08-27 08:14:08Z" class="relativetime">Aug 27 '15 at 8:14</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-08-26 16:02:08Z" class="relativetime">Aug 26 '15 at 16:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/172693/jacquesb"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/fd633bcdc4aad15ea62e836d61f0dd8f.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/172693/jacquesb">JacquesB</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 16,489" dir="ltr">16.5k</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="43 silver badges"><span class="badge2"></span><span class="badgecount">43</span></span><span title="50 bronze badges"><span class="badge3"></span><span class="badgecount">50</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-294650" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-294650" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="164293"></a>
+<div id="answer-164293" class="answer" data-answerid="164293" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="164293" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">-2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You should catch general exceptions at the top level of every process, and handle
+it by reporting the bug as well as possible and then terminating the process.</p>
+
+<p>You should not catch general exceptions and try to continue execution.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://programmers.stackexchange.com/a/164293" title="short permalink to this answer" class="short-link" id="link-post-164293">share</a><span class="lsep">|</span><a href="http://programmers.stackexchange.com/posts/164293/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-09-09 21:54:49Z" class="relativetime">Sep 9 '12 at 21:54</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://programmers.stackexchange.com/users/33869/ddyer"><div class="gravatar-wrapper-32"><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/cf505c9af73357aad874f83044c8551c.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://programmers.stackexchange.com/users/33869/ddyer">ddyer</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,516</span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="15 bronze badges"><span class="badge3"></span><span class="badgecount">15</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-164293" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-164293" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/164256/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="164256" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="https://www.google.com.eg" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+        
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: false,
+                reputationToPostImages: null,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li style="left: 0px;" class="wmd-button" id="wmd-bold-button"><span style="background-position: 0px -20px;"></span></li><li style="left: 25px;" class="wmd-button" id="wmd-italic-button"><span style="background-position: -20px -20px;"></span></li><li style="left: 50px;" class="wmd-spacer" id="wmd-spacer1"><span style="background-position: -40px -20px;"></span></li><li style="left: 75px;" class="wmd-button" id="wmd-link-button"><span style="background-position: -40px -20px;"></span></li><li style="left: 100px;" class="wmd-button" id="wmd-quote-button"><span style="background-position: -60px -20px;"></span></li><li style="left: 125px;" class="wmd-button" id="wmd-code-button"><span style="background-position: -80px -20px;"></span></li><li style="left: 150px;" class="wmd-button" id="wmd-image-button"><span style="background-position: -100px -20px;"></span></li><li style="left: 175px;" class="wmd-spacer" id="wmd-spacer2"><span style="background-position: -120px -20px;"></span></li><li style="left: 200px;" class="wmd-button" id="wmd-olist-button"><span style="background-position: -120px -20px;"></span></li><li style="left: 225px;" class="wmd-button" id="wmd-ulist-button"><span style="background-position: -140px -20px;"></span></li><li style="left: 250px;" class="wmd-button" id="wmd-heading-button"><span style="background-position: -160px -20px;"></span></li><li style="left: 275px;" class="wmd-button" id="wmd-hr-button"><span style="background-position: -180px -20px;"></span></li><li style="left: 300px;" class="wmd-spacer" id="wmd-spacer3"><span style="background-position: -200px -20px;"></span></li><li style="left: 325px;" class="wmd-button" id="wmd-undo-button"><span style="background-position: -200px -20px;"></span></li><li style="left: 350px;" class="wmd-button" id="wmd-redo-button"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="47628c84107f20bd6b6fea59ea9495be" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://programmers.stackexchange.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2fprogrammers.stackexchange.com%2fquestions%2f164256%2fis-catching-general-exceptions-really-a-bad-thing%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fprogrammers.stackexchange.com%2fquestions%2f164256%2fis-catching-general-exceptions-really-a-bad-thing%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://programmers.stackexchange.com/questions/tagged/c%23" class="post-tag" title="show questions tagged 'c#'" rel="tag">c#</a> <a href="http://programmers.stackexchange.com/questions/tagged/design" class="post-tag" title="show questions tagged 'design'" rel="tag">design</a> <a href="http://programmers.stackexchange.com/questions/tagged/exceptions" class="post-tag" title="show questions tagged 'exceptions'" rel="tag">exceptions</a> <a href="http://programmers.stackexchange.com/questions/tagged/exception-handling" class="post-tag" title="show questions tagged 'exception-handling'" rel="tag">exception-handling</a> <a href="http://programmers.stackexchange.com/questions/tagged/code-analysis" class="post-tag" title="show questions tagged 'code-analysis'" rel="tag">code-analysis</a>  or <a href="http://programmers.stackexchange.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2012-09-09 15:18:57Z"><b>3 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>19831 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://programmers.stackexchange.com/questions/164256/is-catching-general-exceptions-really-a-bad-thing?lastactivity" class="lastactivity-link" title="2015-08-27 08:14:08Z">11 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk1198951729",[5,17]).enableDynamicSiteSelection().setZone(56016); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1198951729"><div style="background-image: url( data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== ); width: 1px; height: 1px; display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="c%23%20-%20Is%20catching%20general%20exceptions%20really%20a%20bad%20thing%20%20-%20Programmers%20Stack%20Exchange_files/i.gif" style="position:absolute;" height="0px" border="0" width="0px"></div>
+			
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="http://programmers.stackexchange.com/q/319088?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">11</div>
+	</a>
+	<a href="http://programmers.stackexchange.com/questions/319088/is-indiscriminately-catching-exceptions-pokemon-exception-handling-ever-accept?noredirect=1&amp;lq=1" class="question-hyperlink">Is indiscriminately catching exceptions (Pokemon exception handling) ever acceptable?</a>
+</div>
+<div class="spacer">
+	<a href="http://programmers.stackexchange.com/q/209764?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://programmers.stackexchange.com/questions/209764/catchexception-ex-would-this-example-be-a-code-smell?noredirect=1&amp;lq=1" class="question-hyperlink">catch(Exception ex) would this example be a code smell?</a>
+</div>
+<div class="spacer">
+	<a href="http://programmers.stackexchange.com/q/270406?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="http://programmers.stackexchange.com/questions/270406/is-it-a-good-practice-to-catch-all-exception?noredirect=1&amp;lq=1" class="question-hyperlink">Is it a Good Practice to Catch All Exception?</a>
+</div>
+<div class="spacer">
+	<a href="http://programmers.stackexchange.com/q/258201?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://programmers.stackexchange.com/questions/258201/is-it-possible-good-idea-to-reduce-chance-of-crashing-by-catching-error?noredirect=1&amp;lq=1" class="question-hyperlink">Is it possible/good idea to reduce chance of crashing by catching Error?</a>
+</div>
+<div class="spacer">
+	<a href="http://programmers.stackexchange.com/q/324891?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://programmers.stackexchange.com/questions/324891/in-critical-code-should-exceptions-describing-a-nonsense-condition-be-handled?noredirect=1&amp;lq=1" class="question-hyperlink">In critical code, should exceptions describing a nonsense condition be handled?</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/114338?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">37</div></a><a href="http://programmers.stackexchange.com/questions/114338/why-are-exception-specifications-bad?rq=1" class="question-hyperlink">Why are exception specifications bad?</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/135233?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">10</div></a><a href="http://programmers.stackexchange.com/questions/135233/using-a-try-finally-without-catch-vs-enum-state-validation?rq=1" class="question-hyperlink">Using a try-finally (without catch) vs enum-state validation</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/147336?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">9</div></a><a href="http://programmers.stackexchange.com/questions/147336/how-bad-is-unrelated-code-in-try-catch-finally-block?rq=1" class="question-hyperlink">“how bad” is unrelated code in try-catch-finally block?</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/237948?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">-1</div></a><a href="http://programmers.stackexchange.com/questions/237948/how-to-determine-what-throws-an-exception?rq=1" class="question-hyperlink">How to determine what throws an exception</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/258649?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://programmers.stackexchange.com/questions/258649/exceptions-what-to-handle-what-to-throw?rq=1" class="question-hyperlink">Exceptions: What to handle, what to throw</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/274009?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">5</div></a><a href="http://programmers.stackexchange.com/questions/274009/exception-versus-return-code-in-dao-pattern?rq=1" class="question-hyperlink">Exception versus return code in DAO pattern</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/275023?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">5</div></a><a href="http://programmers.stackexchange.com/questions/275023/when-to-create-a-custom-exception-in-c?rq=1" class="question-hyperlink">When to create a custom exception in C#</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/276326?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://programmers.stackexchange.com/questions/276326/how-do-i-find-out-what-type-of-exception-i-am-supposed-to-raise?rq=1" class="question-hyperlink">How do I find out what type of exception I am supposed to raise?</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/291038?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">3</div></a><a href="http://programmers.stackexchange.com/questions/291038/design-strategy-for-wrapping-exceptions?rq=1" class="question-hyperlink">Design strategy for wrapping exceptions</a></div><div class="spacer js-gps-track"><a href="http://programmers.stackexchange.com/q/319062?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="http://programmers.stackexchange.com/questions/319062/catching-exception-and-recalling-same-function?rq=1" class="question-hyperlink">Catching Exception and Recalling same function?</a></div>
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/84902/how-do-i-manage-a-player-who-is-handling-traps-by-metagaming" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I manage a player who is handling traps by metagaming?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/73480/can-one-make-a-purely-negative-contribution-to-a-paper" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can one make a *purely negative* contribution to a paper?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/73411/what-to-do-when-my-introductory-sentence-is-taken-from-another-authors-paper" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What to do when my introductory sentence is taken from another author's paper?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/17579/how-does-a-simple-construction-keep-a-firing-rocket-on-the-ground" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does a simple construction keep a firing rocket on the ground?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/48735/mounted-cavalry-in-the-modern-era" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Mounted Cavalry in the Modern Era
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/131056/what-is-worse-for-password-strength-a-poor-password-policy-or-no-password-polic" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is worse for password strength, a poor password policy or no password policy at all?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-programmers" title="Programmers Stack Exchange"></div><a href="http://programmers.stackexchange.com/questions/325845/why-are-if-elif-else-statements-virtually-never-in-table-format" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are "if elif else" statements virtually never in table format?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/805227/get-path-to-application" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Get path to application?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-parenting" title="Parenting Stack Exchange"></div><a href="http://parenting.stackexchange.com/questions/26693/baby-fights-to-get-out-of-arms-cries-when-i-put-him-down" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:228 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Baby fights to get out of arms, cries when I put him down
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/248703/the-mysterious-case-of-the-random-leakage-current" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The mysterious case of the random leakage current
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/67959/why-didnt-the-balance-go-down-on-the-student-loan-after-a-big-check" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why didn't the balance go down on the student loan after a big check?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/299368/delete-first-10-lines-from-similar-files" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Delete first 10 Lines From similar files
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/131164/how-should-high-net-worth-individuals-secure-their-financial-accounts" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How should high net worth individuals secure their financial accounts?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/86880/hofstadter-q-sequence" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Hofstadter Q-sequence
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/340267/single-word-for-neutral-tasting" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Single word for neutral tasting?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/72231/do-i-owe-them-a-two-week-notice" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do I owe them a two week notice?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/1106215/cleaning-computer-cables-in-the-dishwasher" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Cleaning computer cables In the dishwasher
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-gamedev" title="Game Development Stack Exchange"></div><a href="http://gamedev.stackexchange.com/questions/126304/do-programmers-in-the-industry-get-to-participate-in-the-game-design-process" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:53 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do programmers in the industry get to participate in the game design process?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/84719/how-to-stop-a-player-constantly-using-detect-magic-evil" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to stop a player constantly using Detect Magic/Evil?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/86978/verify-wolstenholmes-theorem" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Verify Wolstenholme's theorem
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/48940/a-method-to-cause-maximum-pain-to-a-human" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A method to cause maximum pain to a human
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/98109/can-i-say-my-moms-kids-names-to-mean-the-names-of-my-mothers-kids" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I say "My mom's kids names" to mean: "The names of my mother's kids"?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/86758/big-or-little-endian" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Big or Little Endian
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/135821/were-seat-belts-used-in-star-trek-tv-movies-for-the-first-time-in-star-trek-b" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Were seat belts used in Star Trek (TV, movies) for the first time in Star Trek Beyond?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://programmers.stackexchange.com/feeds/question/164256" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/164256/ivc/1685');});
+</script>
+<noscript>
+    <div><img src="/posts/164256/ivc/1685" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-cs</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://programmers.stackexchange.com/tour">tour</a>
+                    <a href="http://programmers.stackexchange.com/help">help</a>
+                    <a href="http://programmers.blogoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackexchange.com/?tab=site&amp;host=programmers.stackexchange.com">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://programmers.stackexchange.com/contact">contact us</a></b>
+                        <b><a href="http://meta.programmers.stackexchange.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2016 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2016.7.29.3851
+            </div>
+                </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Programmers Stack Exchange works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    
+    
+        
+        ados.run.push(function () {
+                ados_setKeywords('c%23,design,exceptions,exception-handling,code-analysis,x-host-programmers.stackexchange.com');; ados_load();
+        });   
+        
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            
+            ga('create', 'UA-5620270-24', {'cookieDomain': 'stackexchange.com'});
+            ga('set', 'dimension2', '|c#|design|exceptions|exception-handling|code-analysis|');             ga('send', 'pageview');
+        
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+</body></html>

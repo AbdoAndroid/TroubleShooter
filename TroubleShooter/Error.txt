@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using PublicAdo;
+using System.Drawing;
+using System.Data.SqlClient;
+using System.Data;
+namespace TroubleShooter
+{
+    class Error
+    {
+        int User_ID { set; get; }
+        int App_ID { set; get; }
+        string Summary { set; get; }
+        Image img { set; get; }
+        Image thumb { set; get; }
+        string IP { set; get; }
+        int Category_ID { set; get; }
+
+
+
+        public Error(int UserID, int AppID, string IP, Image image, Image thumbnaile)
+        {
+            User_ID = UserID;
+            App_ID = AppID;
+            img = image;
+            thumb = thumbnaile;
+            this.IP = IP;
+
+        }
+        public int  AddError(int Category_ID,string Summary)
+        {
+            this.Category_ID = Category_ID;
+            this.Summary = Summary;
+            SqlParameter[] Params = new SqlParameter[7];
+            Params[0] = SqlAdo.AddParameter("user_name", SqlDbType.Int, User_ID);
+            Params[1] = SqlAdo.AddParameter("app_id", SqlDbType.Int, App_ID);
+            Params[2] = SqlAdo.AddParameter("IP", SqlDbType.VarChar, 20, IP);
+            Params[3] = SqlAdo.AddParameter("img", SqlDbType.VarBinary, img);
+            Params[4] = SqlAdo.AddParameter("small_img", SqlDbType.VarBinary, thumb);
+            Params[5] = SqlAdo.AddParameter("cat_id", SqlDbType.Int,this.Category_ID);
+            Params[6] = SqlAdo.AddParameter("summary", SqlDbType.VarChar, 100, this.Summary);
+
+            return SqlAdo.ExcuteQueryStatement("Insert_Err",Params,new DBConnection("ahmed.abdo",""));
+            
+        }
+
+    }
+}

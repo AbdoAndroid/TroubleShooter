@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
+using PublicAdo;
+using System.Data;
+using System.Data.SqlClient;
+namespace TroubleShooter
+    
+{
+    class CatchBug
+    {
+        int AppID;
+        string IP;
+        string ErrorMessage;
+        string ErrorType;
+        string Errorsrc;
+        string StackTrace;
+        Image image;
+        Image thumbnaile;
+        public CatchBug(/*int UserID,*/int AppID, string IP, string ErrorMessage, string ErrorType, string Errorsrc, string StackTrace, Image image, Image thumbnaile)
+        {
+            this.AppID = AppID;
+            this.IP = IP;
+            this.ErrorMessage = ErrorMessage;
+            this.ErrorType = ErrorType;
+            this.Errorsrc = Errorsrc;
+            this.StackTrace = StackTrace;
+            this.image = image;
+            this.thumbnaile = thumbnaile;
+            
+        }
+
+
+        public int SaveBug()
+        {
+            SqlParameter[] Params = new SqlParameter[8];
+            Params[0] = SqlAdo.AddParameter("app_id", SqlDbType.Int, AppID);
+            Params[1] = SqlAdo.AddParameter("IP", SqlDbType.VarChar, 20, IP);
+            Params[2] = SqlAdo.AddParameter("message", SqlDbType.VarChar, 100, ErrorMessage);
+            Params[3] = SqlAdo.AddParameter("type", SqlDbType.VarChar, 20, ErrorType);
+            Params[4] = SqlAdo.AddParameter("Errsrc", SqlDbType.VarChar, 20, Errorsrc);
+            Params[5] = SqlAdo.AddParameter("trace", SqlDbType.Text, StackTrace);
+            Params[6] = SqlAdo.AddParameter("img", SqlDbType.VarBinary, image);
+            Params[7] = SqlAdo.AddParameter("small_img", SqlDbType.VarBinary, thumbnaile);
+
+
+            return SqlAdo.ExcuteQueryStatement("Insert_BUG", Params, new DBConnection("ahmed.abdo", "Password"));
+
+        }
+    }
+}

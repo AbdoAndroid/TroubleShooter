@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta content="en-us" name="WT.seg_1"><link rel="canonical" href="https://msdn.microsoft.com/en-us/library/system.argumentexception%28v=vs.110%29.aspx">
+    <title>ArgumentException Class (System)</title>
+
+
+
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/3w1b3114(d=default,l=en-us,v=vs.110).aspx">
+
+<meta name="NormalizedUrl" content="https://msdn.microsoft.com/en-us/library/3w1b3114(d=default,l=en-us,v=vs.110).aspx">
+
+<meta name="ms.normalizedurl" content="https://msdn.microsoft.com/en-us/library/3w1b3114(d=default,l=en-us,v=vs.110).aspx">
+
+<meta name="ms.prod" content=".net-framework-4.6">
+
+<meta name="ms.devlang" content="csharp">
+
+<meta name="ms.topic" content="managed-reference">
+
+<meta name="AmbientContext" content="{&quot;layout.limit_max_width&quot;:false,&quot;AmbientContextId&quot;:&quot;3CEFDB41-F280-4203-B5BF-60BAD56E8421&quot;,&quot;display.use_large_font&quot;:true,&quot;insight.perf_timing&quot;:true,&quot;AmbientContextDownstream&quot;:{&quot;LogTrace&quot;:false},&quot;display.high_contrast&quot;:false,&quot;insight.use_wedcs_vnext&quot;:true}">
+
+<meta name="VotingContextUrl" content="https://msdn.microsoft.com/en-us/library/3w1b3114(d=default,l=en-us,v=vs.110).aspx">
+
+<meta name="MN" content="BF1CA93A-6:02:01 AM">
+
+<meta name="Search.ShortId" content="3w1b3114">
+
+<meta name="ms.shortidmsdn" content="3w1b3114">
+
+<meta name="ms.locale" content="en-us">
+
+<meta name="ms.prodver" content="VS.110">
+
+<meta name="ms.contentlang" content="EN">
+
+<meta name="ms.lang" content="EN">
+
+<meta name="ms.loc" content="US">
+
+<meta name="ms.sitever" content="2016.07.15.1">
+
+<meta name="ms.assetid" content="T:System.ArgumentException">
+
+<meta name="ms.auth" content="0">
+
+<meta name="ms.technology" content="dotnet-bcl">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+        
+
+
+
+
+
+
+
+
+
+    <script async="" src="ArgumentException%20Class%20%28System%29_files/ai.js" type="text/javascript"></script><script type="text/javascript" data-do-not-move="true">
+        //<![CDATA[
+        var AmbientContext = null;
+
+        (function(){
+            var root = (function(){return this;}).call(null);
+
+            var GetCookie = function(name){
+                var cookies = root.document.cookie ? root.document.cookie.split('; ') : [];
+                for (var i = 0; i < cookies.length; i++) {
+                    var pos = cookies[i].indexOf('=');
+                    if (name === root.decodeURIComponent(cookies[i].slice(0, pos)))
+                    {
+                        var cookie = cookies[i].slice(pos + 1).replace(/\+/g, ' ');
+                        cookie = root.decodeURIComponent(cookie);
+                        return cookie;
+                    }
+                }
+            };
+
+            var JsonDeserialize = function(content) {
+                return root.JSON && root.JSON.parse ? root.JSON.parse(content) : (new Function('return (' + content + ')'))();
+            };
+
+            try {
+                AmbientContext = GetCookie('AmbientContext');
+                AmbientContext = AmbientContext && JsonDeserialize(AmbientContext);
+            } catch(ex) {
+            } finally {
+                AmbientContext = AmbientContext || null;
+            }
+        })();
+        //]]>
+    </script>
+
+    <script type="text/javascript" src="ArgumentException%20Class%20%28System%29_files/jquery-1.js" data-do-not-move="true" data-provides="jQuery"></script>
+    
+<link rel="stylesheet" type="text/css" href="ArgumentException%20Class%20%28System%29_files/Combined.css"><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "https://i-msdn.sec.s-msft.com", 
+	"js": "https://i2-msdn.sec.s-msft.com", 
+	"css": "https://i-msdn.sec.s-msft.com", 
+	"ttf": "https://i-msdn.sec.s-msft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected">try {
+//
+
+        window.appInsightsId = '5eb1b2eb-c47a-497a-a7ac-a1c230b2882f';
+        //
+} finally { MTPS._injectNextScript_1 && MTPS._injectNextScript_1(); }</script><script src="ArgumentException%20Class%20%28System%29_files/Combined.js" class="mtps-injected"></script><link media="print" type="text/css" rel="stylesheet" href="ArgumentException%20Class%20%28System%29_files/PrintView.css"><meta name="ms.layout_limit_max_width" content="false"><meta name="ms.AmbientContextId" content="3CEFDB41-F280-4203-B5BF-60BAD56E8421"><meta name="ms.display_use_large_font" content="true"><meta name="ms.insight_perf_timing" content="true"><meta name="ms.AmbientContextDownstream" content="%7B%7D"><meta name="ms.display_high_contrast" content="false"><meta name="ms.insight_use_wedcs_vnext" content="true"><meta content=",,2395,2397,2397,3431,8925,16670,11161,16723,16723,16749,,," name="ms.perf.timing"><script src="ArgumentException%20Class%20%28System%29_files/ms.js" type="text/javascript"></script><script src="ArgumentException%20Class%20%28System%29_files/jsll-3.js" type="text/javascript"></script><script src="ArgumentException%20Class%20%28System%29_files/SearchBox.js" class="mtps-injected"></script><script src="ArgumentException%20Class%20%28System%29_files/JumpRedirect.js" class="mtps-injected"></script><script class="mtps-injected">try {
+MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = 'Expand'; MTPS.LocalizedStrings.CollapseButtonTooltip = 'Collapse'; MTPS.LocalizedStrings.EnhancedExpandTooltip = 'Click to expand. Double-click to expand all.'; MTPS.LocalizedStrings.EnhancedCollapseTooltip = 'Click to collapse. Double-click to collapse all.'; MTPS.LocalizedStrings.ExpandAllButtonTooltip = 'Expand All'; MTPS.LocalizedStrings.CollapseAllButtonTooltip = 'Collapse All';
+} finally { MTPS._injectNextScript_5 && MTPS._injectNextScript_5(); }</script><script src="ArgumentException%20Class%20%28System%29_files/Combined_002.js" class="mtps-injected"></script><script src="ArgumentException%20Class%20%28System%29_files/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_7 && MTPS._injectNextScript_7(); }</script></head>
+<body class="library FF">
+    <div id="page">
+
+        
+
+        
+    
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+        
+        
+    <input id="isHeaderBleeding" value="true" type="hidden">
+    <div data-device-type="desktop" id="ux-header" dir="ltr" class="ltr msdn">
+        
+
+      <header ms.pgarea="header">
+        <span id="singleCol"></span>
+        <span id="doubleCol"></span>
+        <span id="isMobile"></span>
+        <div>
+          <div class="row topRow">
+            <div class="top">
+              <div class="left">
+                <a class="msdnLogoImg" href="https://msdn.microsoft.com/en-us" title="MSDN home">
+                  <div id="msft-logo" class="msft-logo"></div>
+                </a>
+                <div class="GrayPipe"></div>
+                  <a class="DevCenterFullNameNonMegaBlade" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterFullName" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterShortName" href="https://msdn.microsoft.com/en-us">Developer</a>
+              </div>
+              <div class="right">
+                <div id="signIn">
+
+  <div class="profileImage"></div>
+
+
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=13&amp;ct=1469883721&amp;rver=6.7.6640.0&amp;wp=mcmbi&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2f3w1b3114%2528v%3dvs.110%2529.aspx%3fappid%3ddev11idef1%26l%3den-us%26k%3dk%2528ehargument%2529%26rd%3dtrue&amp;lc=1033&amp;id=254354&amp;mkt=en-us">Sign in</a></div>
+
+
+
+
+                <div class="auxNav">
+                  <div>
+                    <div data-fragmentname="Subscriptions" id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="https://msdn.microsoft.com/subscriptions/manage/hh442900" id="Subscriptions_2153_1" xmlns="http://www.w3.org/1999/xhtml">MSDN subscriptions</a>
+</div>
+                    <div data-fragmentname="GetTools" id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://go.microsoft.com/fwlink/?LinkId=309297&amp;clcid=0x409&amp;slcid=0x409&amp;campaign=o%7Emsft%7Emsdn%7Egettools-header%7Edn308572" id="GetTools_2153_3" xmlns="http://www.w3.org/1999/xhtml">Get tools</a>
+</div>
+                  </div>
+                        <div>
+                            
+                        </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row middleRow">
+            <div style="display: none;" class="expandTop">
+              <div class="left"></div>
+              <div class="right"></div>
+            </div>
+          </div>
+        </div>
+        <div id="buttomRowWrapper" class="bg_default">
+          <div class="row buttomRow bg_default">
+            <div class="bottom">
+              <div class="left">
+                <a id="grip" class="menu-icon" href="javascript:void(0)"></a>
+                
+                <div id="drawer">
+                  <div class="toc">
+                    
+        <nav>
+            <ul ms.cmpgrp="main nav" class="navL1">
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)">Technologies</a>
+                                <ul style="display: none;" class="navL2">
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/app-development-msdn" title="App Development">App Development</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/cloud-app-development-msdn" title="Cloud">Cloud</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/web-app-development-msdn" title="Web">Web</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/big-data-development-msdn" title="Data">Data</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/games-development-msdn" title="Gaming">Gaming</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/internetofthings" title="Internet of Things">Internet of Things</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)">Downloads</a>
+                                <ul style="display: none;" class="navL2">
+                                        <li class="inactive">
+                                            <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="Visual Studio">Visual Studio</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/subscriptions" title="MSDN subscription access">MSDN subscription access</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/microsoft-sdks-msdn" title="SDKs">SDKs</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Trial software">Trial software</a>
+
+                                                <ul style="display: none;" class="navL3">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/evalcenter" title="Free downloads">Free downloads</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/officeevaluationresources" title="Office resources">Office resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sharepoint2013resources" title="SharePoint Server 2013 resources">SharePoint Server 2013 resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sqlserver2014expressresources" title="SQL Server 2014 Express resources">SQL Server 2014 Express resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/windowsserver2012r2resources" title="Windows Server 2012 resources">Windows Server 2012 resources</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)">Programs</a>
+                                <ul style="display: none;" class="navL2">
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="MSDN subscriptions">MSDN subscriptions</a>
+
+                                                <ul style="display: none;" class="navL3">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-overview" title="Overview">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/benefits-overview" title="Benefits">Benefits</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-administration" title="Administrators">Administrators</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Students">Students</a>
+
+                                                <ul style="display: none;" class="navL3">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/imagine/imagine-home" title="Microsoft Imagine">Microsoft Imagine</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/microsoftstudentpartners" title="Microsoft Student Partners">Microsoft Student Partners</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Architects">Architects</a>
+
+                                                <ul style="display: none;" class="navL3">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-overview-msdn" title="Overview">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-case-studies-msdn" title="Case studies">Case studies</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-blueprints-msdn" title="Blueprints">Blueprints</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="http://blogs.msdn.com/b/msarchitecture/" title="Blog">Blog</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="http://social.msdn.microsoft.com/forums/en-us/home?brandignore=true&amp;sort=relevancedesc&amp;searchterm=architecture+or+architect" title="Forums">Forums</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/applicationbuilder" title="ISV">ISV</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://www.microsoft.com/bizspark" title="Startups">Startups</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://rewards.msdn.microsoft.com/" title="TechRewards">TechRewards</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://events.msdn.microsoft.com/" title="Events">Events</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)">Community</a>
+                                <ul style="display: none;" class="navL2">
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/magazine/dd767791" title="Magazine">Magazine</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://social.msdn.microsoft.com/forums/" title="Forums">Forums</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://blogs.msdn.microsoft.com/" title="Blogs">Blogs</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://tech-advisors.msdn.microsoft.com/en-us" title="Tech Advisors">Tech Advisors</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://channel9.msdn.com/" title="Channel 9">Channel 9</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive current toggle">
+                            <a href="javascript:void(0)">Documentation</a>
+                                <ul style="display: none;" class="navL2">
+                                        <li class="inactive current">
+                                            <a href="https://msdn.microsoft.com/library" title="APIs and reference">APIs and reference</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/developer-centers-msdn" title="Dev centers">Dev centers</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive">
+                            <a href="https://code.msdn.microsoft.com/">Samples</a>
+                        </li>
+            </ul>
+        </nav>
+
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div data-fragmentname="SearchBox" id="Fragment_SearchBox" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="SearchBox">
+    <form id="HeaderSearchForm" name="HeaderSearchForm" method="get">
+      <button ms.searchtype="icon" ms.pgarea="header" ms.title="search" ms.interactiontype="2" id="FakeHeaderSearchButton" value="Search" type="submit" class="header-search-button">
+        <div id="search-finder" class="search-finder"></div>
+      </button>
+      <button ms.searchtype="icon" ms.pgarea="header" ms.title="search" ms.interactiontype="2" title="Search MSDN" data-pgarea="header" data-searchtype="icon" id="HeaderSearchButton" style="display:none"></button>
+      <div id="searchSplitter"></div>
+      <div id="searchCloseIcon" class="search-clear-x"></div>
+      <div id="searchTextContainer" style="width: 0px; display: none;">
+        <input ms.searchtype="enter-key" ms.pgarea="header" ms.title="search" ms.interactiontype="2" data-pgarea="header" data-searchtype="searchbox" autocomplete="off" id="HeaderSearchTextBox" name="query" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" type="text">
+      <div style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); font-family: MS Shell Dlg \32 ; font-size: 16px;" id="SearchFlyoutContainer"><div id="SuggestionContainer"><ul ms.searchtype="suggested keyword" ms.pgarea="header" ms.title="search" ms.interactiontype="2" data-searchtype="search dropdown" data-pgarea="header" style="list-style: outside none none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></div>
+    </form>
+    
+    
+  </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+    <div id="overlayMaskHeader"></div></div>
+
+    
+    
+    
+    <div id="jumpInfo" style="display: none">We’re sorry. The content you requested has been removed. You’ll be auto redirected in 1 second.</div>
+
+
+
+
+
+<link type="text/css" rel="stylesheet">
+<link type="text/css" rel="stylesheet">
+
+
+    <div id="breadcrumbs" ms.pgarea="body" ms.cmpgrp="breadcrumbs">
+        <div id="breadcrumbDesktop" class="breadCrumb">
+                        <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/en-us/library/ff361664%28v=vs.110%29.aspx" title=".NET Development"></a></span>
+                        <span><a href="https://msdn.microsoft.com/en-us/library/w0x726c2%28v=vs.110%29.aspx" title=".NET Framework 4.6 and 4.5"><span>.NET Framework 4.6 and 4.5</span></a></span>
+                        <span><a href="https://msdn.microsoft.com/en-us/library/mt472912%28v=vs.110%29.aspx" title=".NET Framework Class Library"><span>.NET Framework Class Library</span></a></span>
+                        <span class="breadcrumbDropSmall">
+                            <a id="breadcrumbDropDownButton" href="#" targethref="https://msdn.microsoft.com/en-us/library/mt472912(v=vs.110).aspx" title="System"><span>System</span></a>
+                        </span>
+        </div>
+        <div style="display: none;" id="breadcrumbDropDownMenu"></div>
+        <div style="display: none;" id="tocDropDownMenu"></div>
+
+        <div id="breadcrumbTablet" class="breadCrumb">
+                        <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/en-us/library/mt472912%28v=vs.110%29.aspx" title=".NET Framework Class Library"></a></span>
+                    <span><a href="https://msdn.microsoft.com/en-us/library/system%28v=vs.110%29.aspx" title="System"><span>System</span></a></span>
+                <span class="breadcrumbDropSmall"><a id="tocDropDownButton" href="#" title="ArgumentException Class"><span>ArgumentException Class</span></a></span>
+        <div id="navigationButtons">
+            <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/3w1b3114%28d=printer,v=vs.110%29.aspx?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true" rel="nofollow"><ins class="print"></ins>Print </a>
+            <a id="isd_printABook" href="https://msdn.microsoft.com/en-us/library/export/help/?returnurl=%2fen-us%2flibrary%2f3w1b3114%28v%3dvs.110%29.aspx%3fappid%3ddev11idef1%26l%3den-us%26k%3dk%28ehargument%29%26rd%3dtrue">
+                <ins class="export"></ins>Export (<span class="count">0</span>)
+            </a>
+        </div></div>
+        <div id="breadcrumbMobile" class="breadCrumb">
+                <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/en-us/library/system%28v=vs.110%29.aspx" title="System"></a></span>
+            <span class="breadcrumbDropSmall"><a id="tocPopupButton" href="#" title="ArgumentException Class"><span>ArgumentException Class</span></a></span>
+        <div id="navigationButtons">
+            <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/3w1b3114%28d=printer,v=vs.110%29.aspx?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true" rel="nofollow"><ins class="print"></ins>Print </a>
+            <a id="isd_printABook" href="https://msdn.microsoft.com/en-us/library/export/help/?returnurl=%2fen-us%2flibrary%2f3w1b3114%28v%3dvs.110%29.aspx%3fappid%3ddev11idef1%26l%3den-us%26k%3dk%28ehargument%29%26rd%3dtrue">
+                <ins class="export"></ins>Export (<span class="count">0</span>)
+            </a>
+        </div></div>
+    </div>
+    <div style="display: none;" id="tocPopupMenu">
+        <div id="tocPopMenuClose" class="tocCloseLarge"></div>
+        <div id="tocTitle">ArgumentException Class</div>        
+    </div>
+
+    
+
+
+        <div id="body" ms.pgarea="body" class="">
+            <span id="tabletView_large"></span>
+            <span id="tabletView_small"></span>
+            <span id="mobileView"></span>
+            
+
+
+
+
+
+
+
+
+
+    <div style="height: auto;" id="leftNav" ms.cmpgrp="left toc">
+
+    
+
+
+
+<div id="tocnav" class="hide-archive ArchiveV2">
+    <div class="tocunselected">
+        <div style="display: block;" id="tocExpandArea">
+            <span class="toc_empty"></span>
+            <span id="tocExpandButton"><a href="#"></a></span>
+        </div>
+        <div id="tocExpand"><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system._appdomain%28v=vs.110%29.aspx" id="mt507840_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="_AppDomain Interface">_AppDomain Interface</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.accessviolationexception%28v=vs.110%29.aspx" id="mt507816_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AccessViolationException Class">AccessViolationException Class</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.action%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action Delegate">Action Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/018hxwa8%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T) Delegate">Action(T) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd387291%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402870%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402748%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402871%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402866%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402873%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402872%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb549311%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2) Delegate">Action(T1, T2) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb549392%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3) Delegate">Action(T1, T2, T3) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb548654%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4) Delegate">Action(T1, T2, T3, T4) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd289012%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5) Delegate">Action(T1, T2, T3, T4, T5) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd269635%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6) Delegate">Action(T1, T2, T3, T4, T5, T6) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd268304%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7) Delegate">Action(T1, T2, T3, T4, T5, T6, T7) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd235351%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd386922%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Action(T1, T2, T3, T4, T5, T6, T7, T8, T9) Delegate">Action(T1, T2, T3, T4, T5, T6, T7, T8, T9) Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.activationcontext%28v=vs.110%29.aspx" id="mt507846_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ActivationContext Class">ActivationContext Class</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.activationcontext.contextform%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ActivationContext.ContextForm Enumeration">ActivationContext.ContextForm Enumeration</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.activator%28v=vs.110%29.aspx" id="mt507827_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Activator Class">Activator Class</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.aggregateexception%28v=vs.110%29.aspx" id="mt507854_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AggregateException Class">AggregateException Class</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.appcontext%28v=vs.110%29.aspx" id="mt507869_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AppContext Class">AppContext Class</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.appdomain%28v=vs.110%29.aspx" id="mt507872_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AppDomain Class">AppDomain Class</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.appdomaininitializer%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AppDomainInitializer Delegate">AppDomainInitializer Delegate</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.appdomainmanager%28v=vs.110%29.aspx" id="mt507821_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AppDomainManager Class">AppDomainManager Class</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.appdomainmanagerinitializationoptions%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AppDomainManagerInitializationOptions Enumeration">AppDomainManagerInitializationOptions Enumeration</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.appdomainsetup%28v=vs.110%29.aspx" id="mt507863_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AppDomainSetup Class">AppDomainSetup Class</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.appdomainunloadedexception%28v=vs.110%29.aspx" id="mt507847_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AppDomainUnloadedException Class">AppDomainUnloadedException Class</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.applicationexception%28v=vs.110%29.aspx" id="mt507862_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ApplicationException Class">ApplicationException Class</a>                </div></div>
+    <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.applicationid%28v=vs.110%29.aspx" id="mt507914_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ApplicationId Class">ApplicationId Class</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.applicationidentity%28v=vs.110%29.aspx" id="mt507842_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ApplicationIdentity Class">ApplicationIdentity Class</a>                </div><div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.argiterator%28v=vs.110%29.aspx" id="mt507858_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArgIterator Structure">ArgIterator Structure</a>                </div></div>
+    <div class="tocselected"><div data-childrenloaded="true" class="toclevel current" data-toclevel="1">
+<a aria-label="Collapse the table of content" class="toc_expanded" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.argumentexception%28v=vs.110%29.aspx" id="mt507882_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArgumentException Class">ArgumentException Class</a>                </div><div class="tocPadding"><div class="toclevel " data-toclevel="2">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.argumentexception.argumentexception%28v=vs.110%29.aspx" id="mt507880_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArgumentException Constructor">ArgumentException Constructor</a>                </div><div class="toclevel " data-toclevel="2">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.argumentexception_methods%28v=vs.110%29.aspx" id="mt507874_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArgumentException Methods">ArgumentException Methods</a>                </div><div class="toclevel " data-toclevel="2">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.argumentexception_properties%28v=vs.110%29.aspx" id="mt507881_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArgumentException Properties">ArgumentException Properties</a>                </div><div class="toclevel " data-toclevel="2">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.argumentexception_events%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArgumentException Events">ArgumentException Events</a>                </div></div></div>
+    <div class="tocunselected">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.argumentnullexception%28v=vs.110%29.aspx" id="mt507848_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArgumentNullException Class">ArgumentNullException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.argumentoutofrangeexception%28v=vs.110%29.aspx" id="mt468245_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArgumentOutOfRangeException Class">ArgumentOutOfRangeException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.arithmeticexception%28v=vs.110%29.aspx" id="mt507897_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArithmeticException Class">ArithmeticException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.array%28v=vs.110%29.aspx" id="mt507948_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Array Class">Array Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/1hsbd92d%28v=vs.110%29.aspx" id="mt507944_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArraySegment(T) Structure">ArraySegment(T) Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.arraytypemismatchexception%28v=vs.110%29.aspx" id="mt507899_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ArrayTypeMismatchException Class">ArrayTypeMismatchException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.assemblyloadeventargs%28v=vs.110%29.aspx" id="mt507894_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AssemblyLoadEventArgs Class">AssemblyLoadEventArgs Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.assemblyloadeventhandler%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AssemblyLoadEventHandler Delegate">AssemblyLoadEventHandler Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.asynccallback%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AsyncCallback Delegate">AsyncCallback Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.attribute%28v=vs.110%29.aspx" id="mt507929_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Attribute Class">Attribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.attributetargets%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AttributeTargets Enumeration">AttributeTargets Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.attributeusageattribute%28v=vs.110%29.aspx" id="mt507909_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AttributeUsageAttribute Class">AttributeUsageAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.badimageformatexception%28v=vs.110%29.aspx" id="mt507937_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="BadImageFormatException Class">BadImageFormatException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.base64formattingoptions%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Base64FormattingOptions Enumeration">Base64FormattingOptions Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.bitconverter%28v=vs.110%29.aspx" id="mt507939_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="BitConverter Class">BitConverter Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.boolean%28v=vs.110%29.aspx" id="mt507936_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Boolean Structure">Boolean Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.buffer%28v=vs.110%29.aspx" id="mt507927_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Buffer Class">Buffer Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.byte%28v=vs.110%29.aspx" id="mt507942_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Byte Structure">Byte Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.cannotunloadappdomainexception%28v=vs.110%29.aspx" id="mt507943_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CannotUnloadAppDomainException Class">CannotUnloadAppDomainException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.char%28v=vs.110%29.aspx" id="mt507966_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Char Structure">Char Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.charenumerator%28v=vs.110%29.aspx" id="mt521080_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CharEnumerator Class">CharEnumerator Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.clscompliantattribute%28v=vs.110%29.aspx" id="mt507950_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CLSCompliantAttribute Class">CLSCompliantAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/tfakywbh%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Comparison(T) Delegate">Comparison(T) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.console%28v=vs.110%29.aspx" id="mt521081_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Console Class">Console Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.consolecanceleventargs%28v=vs.110%29.aspx" id="mt521075_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ConsoleCancelEventArgs Class">ConsoleCancelEventArgs Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.consolecanceleventhandler%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ConsoleCancelEventHandler Delegate">ConsoleCancelEventHandler Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.consolecolor%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ConsoleColor Enumeration">ConsoleColor Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.consolekey%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ConsoleKey Enumeration">ConsoleKey Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.consolekeyinfo%28v=vs.110%29.aspx" id="mt521107_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ConsoleKeyInfo Structure">ConsoleKeyInfo Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.consolemodifiers%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ConsoleModifiers Enumeration">ConsoleModifiers Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.consolespecialkey%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ConsoleSpecialKey Enumeration">ConsoleSpecialKey Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.contextboundobject%28v=vs.110%29.aspx" id="mt521082_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ContextBoundObject Class">ContextBoundObject Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.contextmarshalexception%28v=vs.110%29.aspx" id="mt521084_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ContextMarshalException Class">ContextMarshalException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.contextstaticattribute%28v=vs.110%29.aspx" id="mt507984_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ContextStaticAttribute Class">ContextStaticAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.convert%28v=vs.110%29.aspx" id="mt521100_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Convert Class">Convert Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/kt456a2y%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Converter(TInput, TOutput) Delegate">Converter(TInput, TOutput) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.crossappdomaindelegate%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CrossAppDomainDelegate Delegate">CrossAppDomainDelegate Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.datamisalignedexception%28v=vs.110%29.aspx" id="mt521127_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DataMisalignedException Class">DataMisalignedException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.datetime%28v=vs.110%29.aspx" id="mt521147_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DateTime Structure">DateTime Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/shx7s921%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DateTimeKind Enumeration">DateTimeKind Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.datetimeoffset%28v=vs.110%29.aspx" id="mt521141_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DateTimeOffset Structure">DateTimeOffset Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.dayofweek%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DayOfWeek Enumeration">DayOfWeek Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.dbnull%28v=vs.110%29.aspx" id="mt468235_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DBNull Class">DBNull Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.decimal%28v=vs.110%29.aspx" id="mt521162_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Decimal Structure">Decimal Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.delegate%28v=vs.110%29.aspx" id="mt521163_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Delegate Class">Delegate Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.dividebyzeroexception%28v=vs.110%29.aspx" id="mt521176_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DivideByZeroException Class">DivideByZeroException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.dllnotfoundexception%28v=vs.110%29.aspx" id="mt521175_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DllNotFoundException Class">DllNotFoundException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.double%28v=vs.110%29.aspx" id="mt521185_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Double Structure">Double Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.duplicatewaitobjectexception%28v=vs.110%29.aspx" id="mt521194_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DuplicateWaitObjectException Class">DuplicateWaitObjectException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.entrypointnotfoundexception%28v=vs.110%29.aspx" id="mt521195_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="EntryPointNotFoundException Class">EntryPointNotFoundException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.enum%28v=vs.110%29.aspx" id="mt521244_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Enum Class">Enum Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.environment%28v=vs.110%29.aspx" id="mt521247_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Environment Class">Environment Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.environment.specialfolder%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Environment.SpecialFolder Enumeration">Environment.SpecialFolder Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.environment.specialfolderoption%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Environment.SpecialFolderOption Enumeration">Environment.SpecialFolderOption Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.environmentvariabletarget%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="EnvironmentVariableTarget Enumeration">EnvironmentVariableTarget Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.eventargs%28v=vs.110%29.aspx" id="mt521191_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="EventArgs Class">EventArgs Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.eventhandler%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="EventHandler Delegate">EventHandler Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/db0etb8x%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="EventHandler(TEventArgs) Delegate">EventHandler(TEventArgs) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx" id="mt521237_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Exception Class">Exception Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.executionengineexception%28v=vs.110%29.aspx" id="mt521221_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ExecutionEngineException Class">ExecutionEngineException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.fieldaccessexception%28v=vs.110%29.aspx" id="mt521218_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="FieldAccessException Class">FieldAccessException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.filestyleuriparser%28v=vs.110%29.aspx" id="mt521208_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="FileStyleUriParser Class">FileStyleUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.flagsattribute%28v=vs.110%29.aspx" id="mt521199_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="FlagsAttribute Class">FlagsAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.formatexception%28v=vs.110%29.aspx" id="mt521225_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="FormatException Class">FormatException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.formattablestring%28v=vs.110%29.aspx" id="mt521229_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="FormattableString Class">FormattableString Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.ftpstyleuriparser%28v=vs.110%29.aspx" id="mt521219_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="FtpStyleUriParser Class">FtpStyleUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb534960%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(TResult) Delegate">Func(TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd386894%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd383294%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402864%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402863%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402867%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402861%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402868%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd402862%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb549151%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T, TResult) Delegate">Func(T, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb534647%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, TResult) Delegate">Func(T1, T2, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb549430%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, TResult) Delegate">Func(T1, T2, T3, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb534303%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, TResult) Delegate">Func(T1, T2, T3, T4, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd268303%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, TResult) Delegate">Func(T1, T2, T3, T4, T5, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd269654%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd289456%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dd267613%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Func(T1, T2, T3, T4, T5, T6, T7, T8, TResult) Delegate">Func(T1, T2, T3, T4, T5, T6, T7, T8, TResult) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.gc%28v=vs.110%29.aspx" id="mt521241_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GC Class">GC Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bb495757%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GCCollectionMode Enumeration">GCCollectionMode Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.gcnotificationstatus%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GCNotificationStatus Enumeration">GCNotificationStatus Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.genericuriparser%28v=vs.110%29.aspx" id="mt521220_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GenericUriParser Class">GenericUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.genericuriparseroptions%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GenericUriParserOptions Enumeration">GenericUriParserOptions Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.gopherstyleuriparser%28v=vs.110%29.aspx" id="mt521226_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GopherStyleUriParser Class">GopherStyleUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.guid%28v=vs.110%29.aspx" id="mt521238_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Guid Structure">Guid Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.httpstyleuriparser%28v=vs.110%29.aspx" id="mt521232_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="HttpStyleUriParser Class">HttpStyleUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.iappdomainsetup%28v=vs.110%29.aspx" id="mt521235_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IAppDomainSetup Interface">IAppDomainSetup Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.iasyncresult%28v=vs.110%29.aspx" id="mt521209_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IAsyncResult Interface">IAsyncResult Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.icloneable%28v=vs.110%29.aspx" id="mt521224_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ICloneable Interface">ICloneable Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.icomparable%28v=vs.110%29.aspx" id="mt521283_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IComparable Interface">IComparable Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/4d7sx9hd%28v=vs.110%29.aspx" id="mt521253_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IComparable(T) Interface">IComparable(T) Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.iconvertible%28v=vs.110%29.aspx" id="mt521272_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IConvertible Interface">IConvertible Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.icustomformatter%28v=vs.110%29.aspx" id="mt521274_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ICustomFormatter Interface">ICustomFormatter Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.idisposable%28v=vs.110%29.aspx" id="mt521257_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IDisposable Interface">IDisposable Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ms131187%28v=vs.110%29.aspx" id="mt521269_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IEquatable(T) Interface">IEquatable(T) Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.iformatprovider%28v=vs.110%29.aspx" id="mt521256_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IFormatProvider Interface">IFormatProvider Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.iformattable%28v=vs.110%29.aspx" id="mt521264_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IFormattable Interface">IFormattable Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.indexoutofrangeexception%28v=vs.110%29.aspx" id="mt521271_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IndexOutOfRangeException Class">IndexOutOfRangeException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.insufficientexecutionstackexception%28v=vs.110%29.aspx" id="mt521291_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InsufficientExecutionStackException Class">InsufficientExecutionStackException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.insufficientmemoryexception%28v=vs.110%29.aspx" id="mt521275_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InsufficientMemoryException Class">InsufficientMemoryException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.int16%28v=vs.110%29.aspx" id="mt521254_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Int16 Structure">Int16 Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.int32%28v=vs.110%29.aspx" id="mt521263_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Int32 Structure">Int32 Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.int64%28v=vs.110%29.aspx" id="mt521285_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Int64 Structure">Int64 Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.intptr%28v=vs.110%29.aspx" id="mt521323_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IntPtr Structure">IntPtr Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.invalidcastexception%28v=vs.110%29.aspx" id="mt521312_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InvalidCastException Class">InvalidCastException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.invalidoperationexception%28v=vs.110%29.aspx" id="mt507990_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InvalidOperationException Class">InvalidOperationException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.invalidprogramexception%28v=vs.110%29.aspx" id="mt521298_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InvalidProgramException Class">InvalidProgramException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.invalidtimezoneexception%28v=vs.110%29.aspx" id="mt521310_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InvalidTimeZoneException Class">InvalidTimeZoneException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd990377%28v=vs.110%29.aspx" id="mt521303_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IObservable(T) Interface">IObservable(T) Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd783449%28v=vs.110%29.aspx" id="mt521313_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IObserver(T) Interface">IObserver(T) Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/hh138298%28v=vs.110%29.aspx" id="mt521302_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IProgress(T) Interface">IProgress(T) Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.iserviceprovider%28v=vs.110%29.aspx" id="mt521294_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="IServiceProvider Interface">IServiceProvider Interface</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd642331%28v=vs.110%29.aspx" id="mt507987_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Lazy(T) Class">Lazy(T) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd986615%28v=vs.110%29.aspx" id="mt507988_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Lazy(T, TMetadata) Class">Lazy(T, TMetadata) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.ldapstyleuriparser%28v=vs.110%29.aspx" id="mt521317_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="LdapStyleUriParser Class">LdapStyleUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.loaderoptimization%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="LoaderOptimization Enumeration">LoaderOptimization Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.loaderoptimizationattribute%28v=vs.110%29.aspx" id="mt521328_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="LoaderOptimizationAttribute Class">LoaderOptimizationAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.localdatastoreslot%28v=vs.110%29.aspx" id="mt508036_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="LocalDataStoreSlot Class">LocalDataStoreSlot Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.marshalbyrefobject%28v=vs.110%29.aspx" id="mt507994_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MarshalByRefObject Class">MarshalByRefObject Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.math%28v=vs.110%29.aspx" id="mt508012_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Math Class">Math Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.memberaccessexception%28v=vs.110%29.aspx" id="mt508069_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MemberAccessException Class">MemberAccessException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.methodaccessexception%28v=vs.110%29.aspx" id="mt508009_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MethodAccessException Class">MethodAccessException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.midpointrounding%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MidpointRounding Enumeration">MidpointRounding Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.missingfieldexception%28v=vs.110%29.aspx" id="mt507992_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MissingFieldException Class">MissingFieldException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.missingmemberexception%28v=vs.110%29.aspx" id="mt508054_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MissingMemberException Class">MissingMemberException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.missingmethodexception%28v=vs.110%29.aspx" id="mt508044_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MissingMethodException Class">MissingMethodException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.modulehandle%28v=vs.110%29.aspx" id="mt507995_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ModuleHandle Structure">ModuleHandle Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.mtathreadattribute%28v=vs.110%29.aspx" id="mt508050_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MTAThreadAttribute Class">MTAThreadAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.multicastdelegate%28v=vs.110%29.aspx" id="mt508037_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MulticastDelegate Class">MulticastDelegate Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.multicastnotsupportedexception%28v=vs.110%29.aspx" id="mt508006_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MulticastNotSupportedException Class">MulticastNotSupportedException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.netpipestyleuriparser%28v=vs.110%29.aspx" id="mt508011_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NetPipeStyleUriParser Class">NetPipeStyleUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.nettcpstyleuriparser%28v=vs.110%29.aspx" id="mt508022_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NetTcpStyleUriParser Class">NetTcpStyleUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.newsstyleuriparser%28v=vs.110%29.aspx" id="mt508019_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NewsStyleUriParser Class">NewsStyleUriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.nonserializedattribute%28v=vs.110%29.aspx" id="mt508034_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NonSerializedAttribute Class">NonSerializedAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.notfinitenumberexception%28v=vs.110%29.aspx" id="mt508024_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NotFiniteNumberException Class">NotFiniteNumberException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.notimplementedexception%28v=vs.110%29.aspx" id="mt508028_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NotImplementedException Class">NotImplementedException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.notsupportedexception%28v=vs.110%29.aspx" id="mt468240_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NotSupportedException Class">NotSupportedException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.nullable%28v=vs.110%29.aspx" id="mt508026_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Nullable Class">Nullable Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/b3h38hb0%28v=vs.110%29.aspx" id="mt508062_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Nullable(T) Structure">Nullable(T) Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.nullreferenceexception%28v=vs.110%29.aspx" id="mt508047_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NullReferenceException Class">NullReferenceException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.object%28v=vs.110%29.aspx" id="mt508064_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Object Class">Object Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.objectdisposedexception%28v=vs.110%29.aspx" id="mt508068_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ObjectDisposedException Class">ObjectDisposedException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.obsoleteattribute%28v=vs.110%29.aspx" id="mt508055_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ObsoleteAttribute Class">ObsoleteAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.operatingsystem%28v=vs.110%29.aspx" id="mt508056_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OperatingSystem Class">OperatingSystem Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.operationcanceledexception%28v=vs.110%29.aspx" id="mt508063_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OperationCanceledException Class">OperationCanceledException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.outofmemoryexception%28v=vs.110%29.aspx" id="mt508076_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OutOfMemoryException Class">OutOfMemoryException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.overflowexception%28v=vs.110%29.aspx" id="mt508053_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OverflowException Class">OverflowException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.paramarrayattribute%28v=vs.110%29.aspx" id="mt508074_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ParamArrayAttribute Class">ParamArrayAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/3a8hyw88%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="PlatformID Enumeration">PlatformID Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.platformnotsupportedexception%28v=vs.110%29.aspx" id="mt508077_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="PlatformNotSupportedException Class">PlatformNotSupportedException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/bfcke1bz%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Predicate(T) Delegate">Predicate(T) Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/hh193692%28v=vs.110%29.aspx" id="mt508048_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Progress(T) Class">Progress(T) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.random%28v=vs.110%29.aspx" id="mt508052_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Random Class">Random Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.rankexception%28v=vs.110%29.aspx" id="mt508091_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RankException Class">RankException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.resolveeventargs%28v=vs.110%29.aspx" id="mt508095_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ResolveEventArgs Class">ResolveEventArgs Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.resolveeventhandler%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ResolveEventHandler Delegate">ResolveEventHandler Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.runtimeargumenthandle%28v=vs.110%29.aspx" id="mt508088_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RuntimeArgumentHandle Structure">RuntimeArgumentHandle Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.runtimefieldhandle%28v=vs.110%29.aspx" id="mt508102_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RuntimeFieldHandle Structure">RuntimeFieldHandle Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.runtimemethodhandle%28v=vs.110%29.aspx" id="mt508104_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RuntimeMethodHandle Structure">RuntimeMethodHandle Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.runtimetypehandle%28v=vs.110%29.aspx" id="mt508103_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RuntimeTypeHandle Structure">RuntimeTypeHandle Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.sbyte%28v=vs.110%29.aspx" id="mt508141_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SByte Structure">SByte Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.serializableattribute%28v=vs.110%29.aspx" id="mt508096_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SerializableAttribute Class">SerializableAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.single%28v=vs.110%29.aspx" id="mt508119_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Single Structure">Single Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.stackoverflowexception%28v=vs.110%29.aspx" id="mt508112_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="StackOverflowException Class">StackOverflowException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.stathreadattribute%28v=vs.110%29.aspx" id="mt508106_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="STAThreadAttribute Class">STAThreadAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.string%28v=vs.110%29.aspx" id="mt508132_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="String Class">String Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.stringcomparer%28v=vs.110%29.aspx" id="mt508155_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="StringComparer Class">StringComparer Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.stringcomparison%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="StringComparison Enumeration">StringComparison Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.stringsplitoptions%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="StringSplitOptions Enumeration">StringSplitOptions Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.systemexception%28v=vs.110%29.aspx" id="mt508154_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SystemException Class">SystemException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.threadstaticattribute%28v=vs.110%29.aspx" id="mt508152_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ThreadStaticAttribute Class">ThreadStaticAttribute Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.timeoutexception%28v=vs.110%29.aspx" id="mt508158_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TimeoutException Class">TimeoutException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.timespan%28v=vs.110%29.aspx" id="mt468249_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TimeSpan Structure">TimeSpan Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.timezone%28v=vs.110%29.aspx" id="mt508197_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TimeZone Class">TimeZone Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.timezoneinfo%28v=vs.110%29.aspx" id="mt508207_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TimeZoneInfo Class">TimeZoneInfo Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.timezoneinfo.adjustmentrule%28v=vs.110%29.aspx" id="mt508218_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TimeZoneInfo.AdjustmentRule Class">TimeZoneInfo.AdjustmentRule Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.timezoneinfo.transitiontime%28v=vs.110%29.aspx" id="mt508215_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TimeZoneInfo.TransitionTime Structure">TimeZoneInfo.TransitionTime Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.timezonenotfoundexception%28v=vs.110%29.aspx" id="mt508189_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TimeZoneNotFoundException Class">TimeZoneNotFoundException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.tuple%28v=vs.110%29.aspx" id="mt508174_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple Class">Tuple Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd386941%28v=vs.110%29.aspx" id="mt508194_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple(T1) Class">Tuple(T1) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd268536%28v=vs.110%29.aspx" id="mt508211_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple(T1, T2) Class">Tuple(T1, T2) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd387150%28v=vs.110%29.aspx" id="mt508226_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple(T1, T2, T3) Class">Tuple(T1, T2, T3) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd414846%28v=vs.110%29.aspx" id="mt508205_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple(T1, T2, T3, T4) Class">Tuple(T1, T2, T3, T4) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd414892%28v=vs.110%29.aspx" id="mt521338_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple(T1, T2, T3, T4, T5) Class">Tuple(T1, T2, T3, T4, T5) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd386877%28v=vs.110%29.aspx" id="mt508232_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple(T1, T2, T3, T4, T5, T6) Class">Tuple(T1, T2, T3, T4, T5, T6) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd387185%28v=vs.110%29.aspx" id="mt508235_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple(T1, T2, T3, T4, T5, T6, T7) Class">Tuple(T1, T2, T3, T4, T5, T6, T7) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/dd383325%28v=vs.110%29.aspx" id="mt508231_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Tuple(T1, T2, T3, T4, T5, T6, T7, TRest) Class">Tuple(T1, T2, T3, T4, T5, T6, T7, TRest) Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.type%28v=vs.110%29.aspx" id="mt521373_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Type Class">Type Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.typeaccessexception%28v=vs.110%29.aspx" id="mt521351_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TypeAccessException Class">TypeAccessException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.typecode%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TypeCode Enumeration">TypeCode Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.typedreference%28v=vs.110%29.aspx" id="mt521357_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TypedReference Structure">TypedReference Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.typeinitializationexception%28v=vs.110%29.aspx" id="mt521347_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TypeInitializationException Class">TypeInitializationException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.typeloadexception%28v=vs.110%29.aspx" id="mt521372_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TypeLoadException Class">TypeLoadException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.typeunloadedexception%28v=vs.110%29.aspx" id="mt521375_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TypeUnloadedException Class">TypeUnloadedException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uint16%28v=vs.110%29.aspx" id="mt521367_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UInt16 Structure">UInt16 Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uint32%28v=vs.110%29.aspx" id="mt521385_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UInt32 Structure">UInt32 Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uint64%28v=vs.110%29.aspx" id="mt521394_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UInt64 Structure">UInt64 Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uintptr%28v=vs.110%29.aspx" id="mt521403_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UIntPtr Structure">UIntPtr Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.unauthorizedaccessexception%28v=vs.110%29.aspx" id="mt521377_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UnauthorizedAccessException Class">UnauthorizedAccessException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.unhandledexceptioneventargs%28v=vs.110%29.aspx" id="mt521395_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UnhandledExceptionEventArgs Class">UnhandledExceptionEventArgs Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.unhandledexceptioneventhandler%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UnhandledExceptionEventHandler Delegate">UnhandledExceptionEventHandler Delegate</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uri%28v=vs.110%29.aspx" id="mt468326_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Uri Class">Uri Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uribuilder%28v=vs.110%29.aspx" id="mt521378_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriBuilder Class">UriBuilder Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/7767559y%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriComponents Enumeration">UriComponents Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.uriformat%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriFormat Enumeration">UriFormat Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uriformatexception%28v=vs.110%29.aspx" id="mt521422_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriFormatException Class">UriFormatException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.urihostnametype%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriHostNameType Enumeration">UriHostNameType Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.uriidnscope%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriIdnScope Enumeration">UriIdnScope Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.urikind%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriKind Enumeration">UriKind Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uriparser%28v=vs.110%29.aspx" id="mt521481_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriParser Class">UriParser Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/x82988a2%28v=vs.110%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriPartial Enumeration">UriPartial Enumeration</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uritemplate%28v=vs.110%29.aspx" id="mt521455_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriTemplate Class">UriTemplate Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uritemplateequivalencecomparer%28v=vs.110%29.aspx" id="mt521421_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriTemplateEquivalenceComparer Class">UriTemplateEquivalenceComparer Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uritemplatematch%28v=vs.110%29.aspx" id="mt521534_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriTemplateMatch Class">UriTemplateMatch Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uritemplatematchexception%28v=vs.110%29.aspx" id="mt521435_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriTemplateMatchException Class">UriTemplateMatchException Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uritemplatetable%28v=vs.110%29.aspx" id="mt521436_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriTemplateTable Class">UriTemplateTable Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.uritypeconverter%28v=vs.110%29.aspx" id="mt521454_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UriTypeConverter Class">UriTypeConverter Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.valuetype%28v=vs.110%29.aspx" id="mt521490_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ValueType Class">ValueType Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.version%28v=vs.110%29.aspx" id="mt521474_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Version Class">Version Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.void%28v=vs.110%29.aspx" id="mt521419_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Void Structure">Void Structure</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/system.weakreference%28v=vs.110%29.aspx" id="mt468277_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WeakReference Class">WeakReference Class</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a aria-label="Expand the table of content" class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/gg712738%28v=vs.110%29.aspx" id="mt521432_VS.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WeakReference(T) Class">WeakReference(T) Class</a>                </div>
+    </div>
+    <a id="tocMenuToggler" href="#">
+        <span id="tocMenuTogglerIcon" class="tocMenuCollapse"></span>
+        <div id="tocMenuTogglerLabel">TOC</div>
+    </a>
+</div>            <div style="display:none">
+                <div id="CollapseLocalizeString">Collapse the table of content</div>
+                <div id="ExpandLocalizeString">Expand the table of content</div>
+            </div>
+        <div>
+            <a id="isd_archiveControlResponsive" style="display:none;" data-include-archive="Show Archived Versions" data-exclude-archive="Hide Archived Versions">
+            </a>
+            <div id="isd_archiveInstrument" style="display:none">The document is archived and information here might be outdated</div>
+        </div>
+    </div>
+     <div id="content" class="content" ms.cmpgrp="content body">
+
+
+
+
+
+
+
+
+    <div id="archiveDisclaimerText" style="display:none">The document is archived and information here might be outdated</div>
+
+
+
+<div xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="topic">
+    <h1 class="title">ArgumentException Class</h1>
+    
+    <div class="lw_vs">
+      <div id="curversion">
+        <strong>
+                .NET Framework (current version)
+            </strong>
+      </div>
+      <div id="versionclick">
+        <div id="vsseperator" class="cl_lw_vs_seperator"></div>
+        <div>
+          <div>
+            <a id="vsLink" href="javascript:;">
+                        Other Versions
+                    </a>
+          </div>
+          <div class="cl_vs_arrow clip10x10">
+            <img class="cl_lw_vs_arrow" id="vsArrow" alt="" src="ArgumentException%20Class%20%28System%29_files/ImageSprite.png">
+          </div>
+        </div>
+        <ul style="display: none;" id="vsPanel">
+          <li class="">
+            <a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.100%29.aspx">Visual Studio 2010</a>
+          </li>
+          <li class="">
+            <a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.100%29.aspx">.NET Framework 4</a>
+          </li>
+          <li class="">
+            <a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.95%29.aspx">Silverlight </a>
+          </li>
+          <li class="">
+            <a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.90%29.aspx">Visual Studio 2008</a>
+          </li>
+          <li class="">
+            <a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.90%29.aspx">.NET Framework 3.5</a>
+          </li>
+          <li class="">
+            <a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.85%29.aspx">.NET Framework 3.0</a>
+          </li>
+          <li class="">
+            <a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.80%29.aspx">.NET Framework 2.0</a>
+          </li>
+          <li class="">
+            <a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.71%29.aspx">.NET Framework 1.1</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+    <div id="mainSection">
+      <div id="mainBody">&nbsp;<div class="section"><div class="section"><p>The exception that is thrown when one of the arguments provided to a method is not valid.</p></div><strong>Namespace:
+      </strong>
+      &nbsp;
+      <a href="https://msdn.microsoft.com/en-us/library/system%28v=vs.110%29.aspx">System</a><br><strong>Assembly:
+        </strong>&nbsp;mscorlib (in mscorlib.dll)<br><br><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Inheritance Hierarchy</span></a><div id="Anchor_0" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_0" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><span id="idFamilies"></span><a href="https://msdn.microsoft.com/en-us/library/system.object%28v=vs.110%29.aspx">System<span xmlns="">.</span>Object</a><br>  <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">System<span xmlns="">.</span>Exception</a><br>    <a href="https://msdn.microsoft.com/en-us/library/system.systemexception%28v=vs.110%29.aspx">System<span xmlns="">.</span>SystemException</a><br>      <span class="selflink">System<span xmlns="">.</span>ArgumentException</span><br>        <a href="https://msdn.microsoft.com/en-us/library/system.argumentnullexception%28v=vs.110%29.aspx">System<span xmlns="">.</span>ArgumentNullException</a><br>        <a href="https://msdn.microsoft.com/en-us/library/system.argumentoutofrangeexception%28v=vs.110%29.aspx">System<span xmlns="">.</span>ArgumentOutOfRangeException</a><br>        <a href="https://msdn.microsoft.com/en-us/library/system.componentmodel.invalidasynchronousstateexception%28v=vs.110%29.aspx">System.ComponentModel<span xmlns="">.</span>InvalidAsynchronousStateException</a><br>        <a href="https://msdn.microsoft.com/en-us/library/system.componentmodel.invalidenumargumentexception%28v=vs.110%29.aspx">System.ComponentModel<span xmlns="">.</span>InvalidEnumArgumentException</a><br>        <a href="https://msdn.microsoft.com/en-us/library/system.duplicatewaitobjectexception%28v=vs.110%29.aspx">System<span xmlns="">.</span>DuplicateWaitObjectException</a><br>        <a href="https://msdn.microsoft.com/en-us/library/system.globalization.culturenotfoundexception%28v=vs.110%29.aspx">System.Globalization<span xmlns="">.</span>CultureNotFoundException</a><br>        <a href="https://msdn.microsoft.com/en-us/library/system.io.log.reservationnotfoundexception%28v=vs.110%29.aspx">System.IO.Log<span xmlns="">.</span>ReservationNotFoundException</a><br>        <a href="https://msdn.microsoft.com/en-us/library/system.text.decoderfallbackexception%28v=vs.110%29.aspx">System.Text<span xmlns="">.</span>DecoderFallbackException</a><br>        <a href="https://msdn.microsoft.com/en-us/library/system.text.encoderfallbackexception%28v=vs.110%29.aspx">System.Text<span xmlns="">.</span>EncoderFallbackException</a><br></div></div><br><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Syntax</span></a><div id="Anchor_1" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_1" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock">
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.110%29.aspx?appId=Dev11IDEF1&amp;l=EN-US&amp;k=k%28EHArgument%29&amp;rd=true&amp;cs-save-lang=1&amp;cs-lang=cpp#code-snippet-1">C++</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.110%29.aspx?appId=Dev11IDEF1&amp;l=EN-US&amp;k=k%28EHArgument%29&amp;rd=true&amp;cs-save-lang=1&amp;cs-lang=fsharp#code-snippet-1">F#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.110%29.aspx?appId=Dev11IDEF1&amp;l=EN-US&amp;k=k%28EHArgument%29&amp;rd=true&amp;cs-save-lang=1&amp;cs-lang=vb#code-snippet-1">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_fec8c190-4c45-4069-b49c-5cdc1b8c4805');" ms.cmptyp="CodeSnippet">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_fec8c190-4c45-4069-b49c-5cdc1b8c4805" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>[SerializableAttribute]
+[ComVisibleAttribute(<span style="color:Blue;">true</span>)]
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> ArgumentException : SystemException, ISerializable
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+</div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Constructors</span></a><div id="Anchor_2" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_2" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idConstructors" responsive="true"><tbody><tr responsive="true"><th class="iconColumn"></th><th class="nameColumn">Name</th><th class="descriptionColumn">Description</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/03h06sch%28v=vs.110%29.aspx">ArgumentException<span xmlns="">()</span></a></td><td data-th="Description"><div class="section"><p>Initializes a new instance of the <span class="selflink">ArgumentException</span> class.</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="ArgumentException%20Class%20%28System%29_files/system.jpg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/50kwk4s7%28v=vs.110%29.aspx">ArgumentException<span xmlns="">(SerializationInfo, StreamingContext)</span></a></td><td data-th="Description"><div class="section"><p>Initializes a new instance of the <span class="selflink">ArgumentException</span> class with serialized data.</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/wtxc6334%28v=vs.110%29.aspx">ArgumentException<span xmlns="">(String)</span></a></td><td data-th="Description"><div class="section"><p>Initializes a new instance of the <span class="selflink">ArgumentException</span> class with a specified error message.</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/zhh44cxy%28v=vs.110%29.aspx">ArgumentException<span xmlns="">(String, Exception)</span></a></td><td data-th="Description"><div class="section"><p>Initializes a new instance of the <span class="selflink">ArgumentException</span> class with a specified error message and a reference to the inner exception that is the cause of this exception.</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/sxykka64%28v=vs.110%29.aspx">ArgumentException<span xmlns="">(String, String)</span></a></td><td data-th="Description"><div class="section"><p>Initializes a new instance of the <span class="selflink">ArgumentException</span> class with a specified error message and the name of the parameter that causes this exception.</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/2ek3h5bz%28v=vs.110%29.aspx">ArgumentException<span xmlns="">(String, String, Exception)</span></a></td><td data-th="Description"><div class="section"><p>Initializes a new instance of the <span class="selflink">ArgumentException</span>
+ class with a specified error message, the parameter name, and a 
+reference to the inner exception that is the cause of this exception.</p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Properties</span></a><div id="Anchor_3" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_3" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idProperties" responsive="true"><tbody><tr responsive="true"><th class="iconColumn"></th><th class="nameColumn">Name</th><th class="descriptionColumn">Description</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.data%28v=vs.110%29.aspx"><span xmlns="">Data</span></a></td><td data-th="Description"><div class="section"><p>Gets a collection of key/value pairs that provide additional user-defined information about the exception.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.helplink%28v=vs.110%29.aspx"><span xmlns="">HelpLink</span></a></td><td data-th="Description"><div class="section"><p>Gets or sets a link to the help file associated with this exception.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.hresult%28v=vs.110%29.aspx"><span xmlns="">HResult</span></a></td><td data-th="Description"><div class="section"><p>Gets or sets HRESULT, a coded numerical value that is assigned to a specific exception.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.innerexception%28v=vs.110%29.aspx"><span xmlns="">InnerException</span></a></td><td data-th="Description"><div class="section"><p>Gets the <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a> instance that caused the current exception.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/5bhfz870%28v=vs.110%29.aspx"><span xmlns="">Message</span></a></td><td data-th="Description"><div class="section"><p>Gets the error message and the parameter name, or only the error message if no parameter name is set.(Overrides <a href="https://msdn.microsoft.com/en-us/library/system.exception.message%28v=vs.110%29.aspx"><span xmlns="">Exception.Message</span></a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.argumentexception.paramname%28v=vs.110%29.aspx"><span xmlns="">ParamName</span></a></td><td data-th="Description"><div class="section"><p>Gets the name of the parameter that causes this exception.</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.source%28v=vs.110%29.aspx"><span xmlns="">Source</span></a></td><td data-th="Description"><div class="section"><p>Gets or sets the name of the application or the object that causes the error.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.stacktrace%28v=vs.110%29.aspx"><span xmlns="">StackTrace</span></a></td><td data-th="Description"><div class="section"><p>Gets a string representation of the immediate frames on the call stack.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="ArgumentException%20Class%20%28System%29_files/system_003.jpg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.targetsite%28v=vs.110%29.aspx"><span xmlns="">TargetSite</span></a></td><td data-th="Description"><div class="section"><p>Gets the method that throws the current exception.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Methods</span></a><div id="Anchor_4" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_4" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idMethods" responsive="true"><tbody><tr responsive="true"><th class="iconColumn"></th><th class="nameColumn">Name</th><th class="descriptionColumn">Description</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/bsc2ak47%28v=vs.110%29.aspx">Equals<span xmlns="">(Object)</span></a></td><td data-th="Description"><div class="section"><p>Determines whether the specified object is equal to the current object.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.object%28v=vs.110%29.aspx">Object</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="ArgumentException%20Class%20%28System%29_files/system.jpg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.object.finalize%28v=vs.110%29.aspx">Finalize<span xmlns="">()</span></a></td><td data-th="Description"><div class="section"><p>Allows
+ an object to try to free resources and perform other cleanup operations
+ before it is reclaimed by garbage collection.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.object%28v=vs.110%29.aspx">Object</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.getbaseexception%28v=vs.110%29.aspx">GetBaseException<span xmlns="">()</span></a></td><td data-th="Description"><div class="section"><p>When overridden in a derived class, returns the <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a> that is the root cause of one or more subsequent exceptions.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.object.gethashcode%28v=vs.110%29.aspx">GetHashCode<span xmlns="">()</span></a></td><td data-th="Description"><div class="section"><p>Serves as the default hash function. (Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.object%28v=vs.110%29.aspx">Object</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.argumentexception.getobjectdata%28v=vs.110%29.aspx">GetObjectData<span xmlns="">(SerializationInfo, StreamingContext)</span></a></td><td data-th="Description"><div class="section"><p>Sets the <a href="https://msdn.microsoft.com/en-us/library/system.runtime.serialization.serializationinfo%28v=vs.110%29.aspx">SerializationInfo</a> object with the parameter name and additional exception information.(Overrides <a href="https://msdn.microsoft.com/en-us/library/system.exception.getobjectdata%28v=vs.110%29.aspx">Exception<span xmlns="">.</span>GetObjectData<span xmlns="">(SerializationInfo, StreamingContext)</span></a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/44zb316t%28v=vs.110%29.aspx">GetType<span xmlns="">()</span></a></td><td data-th="Description"><div class="section"><p>Gets the runtime type of the current instance.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="ArgumentException%20Class%20%28System%29_files/system.jpg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.object.memberwiseclone%28v=vs.110%29.aspx">MemberwiseClone<span xmlns="">()</span></a></td><td data-th="Description"><div class="section"><p>Creates a shallow copy of the current <a href="https://msdn.microsoft.com/en-us/library/system.object%28v=vs.110%29.aspx">Object</a>.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.object%28v=vs.110%29.aspx">Object</a>.)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="ArgumentException%20Class%20%28System%29_files/system_004.jpg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.tostring%28v=vs.110%29.aspx">ToString<span xmlns="">()</span></a></td><td data-th="Description"><div class="section"><p>Creates and returns a string representation of the current exception.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Events</span></a><div id="Anchor_5" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_5" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idEvents" responsive="true"><tbody><tr responsive="true"><th class="iconColumn"></th><th class="nameColumn">Name</th><th class="descriptionColumn">Description</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protevent" alt="System_CAPS_protevent" src="ArgumentException%20Class%20%28System%29_files/system_002.jpg" title="System_CAPS_protevent" xmlns=""></span></td><td data-th="Name"><a href="https://msdn.microsoft.com/en-us/library/system.exception.serializeobjectstate%28v=vs.110%29.aspx">SerializeObjectState</a></td><td data-th="Description"><div class="section"><p>Occurs
+ when an exception is serialized to create an exception state object 
+that contains serialized data about the exception.(Inherited from <a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a>.)</p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Remarks</span></a><div id="Anchor_6" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_6" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="section"><p><span class="selflink">ArgumentException</span>
+ is thrown when a method is invoked and at least one of the passed 
+arguments does not meet the parameter specification of the called 
+method. The <a href="https://msdn.microsoft.com/en-us/library/system.argumentexception.paramname%28v=vs.110%29.aspx"><span xmlns="">ParamName</span></a> property identifies the invalid argument. </p><p>Most commonly, an <span class="selflink">ArgumentException</span> is thrown by the common language runtime or another class library and indicates developer error. If you throw an <span class="selflink">ArgumentException</span> from your code, you should ensure that the exception's <a href="https://msdn.microsoft.com/en-us/library/5bhfz870%28v=vs.110%29.aspx"><span xmlns="">Message</span></a>
+ property includes a meaningful error message that describes the invalid
+ argument and the expected range of values for the argument. </p><p>The primary derived classes of <span class="selflink">ArgumentException</span> are <a href="https://msdn.microsoft.com/en-us/library/system.argumentnullexception%28v=vs.110%29.aspx">ArgumentNullException</a> and <a href="https://msdn.microsoft.com/en-us/library/system.argumentoutofrangeexception%28v=vs.110%29.aspx">ArgumentOutOfRangeException</a>. These derived classes should be used instead of <span class="selflink">ArgumentException</span>, except in situations where neither of the derived classes is acceptable. For example, exceptions should be thrown by: </p><ul class="unordered"><li><p><a href="https://msdn.microsoft.com/en-us/library/system.argumentnullexception%28v=vs.110%29.aspx">ArgumentNullException</a> whenever <strong>null</strong> is passed to a method that does not accept it as a valid argument.</p></li><li><p><a href="https://msdn.microsoft.com/en-us/library/system.argumentoutofrangeexception%28v=vs.110%29.aspx">ArgumentOutOfRangeException</a>
+ when the value of an argument is outside the range of acceptable 
+values; for example, when the value "46" is passed as the month argument
+ during the creation of a <a href="https://msdn.microsoft.com/en-us/library/system.datetime%28v=vs.110%29.aspx">DateTime</a>.</p></li></ul><p>If the method call does not have any argument or if the failure does not involve the arguments themselves, then <a href="https://msdn.microsoft.com/en-us/library/system.invalidoperationexception%28v=vs.110%29.aspx">InvalidOperationException</a> should be used.</p><p><span class="selflink">ArgumentException</span> uses the HRESULT COR_E_ARGUMENT, which has the value 0x80070057.</p><p>For a list of initial property values for an instance of <span class="selflink">ArgumentException</span>, see the <span class="selflink">ArgumentException</span> constructors.</p></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Examples</span></a><div id="Anchor_7" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_7" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="section"><div class="section"><div class="section"><p>The following example demonstrates how to throw and catch an <span class="selflink">ArgumentException</span>. It uses the <a href="https://msdn.microsoft.com/en-us/library/system.reflection.memberinfo.name%28v=vs.110%29.aspx">ArgumentException.GetType().Name</a> property to display the name of the exception object, and also uses the <a href="https://msdn.microsoft.com/en-us/library/5bhfz870%28v=vs.110%29.aspx"><span xmlns="">Message</span></a> property to display the text of the exception message. </p>
+<div id="code-snippet-2" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.110%29.aspx?appId=Dev11IDEF1&amp;l=EN-US&amp;k=k%28EHArgument%29&amp;rd=true&amp;cs-save-lang=1&amp;cs-lang=cpp#code-snippet-2">C++</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/3w1b3114%28v=vs.110%29.aspx?appId=Dev11IDEF1&amp;l=EN-US&amp;k=k%28EHArgument%29&amp;rd=true&amp;cs-save-lang=1&amp;cs-lang=vb#code-snippet-2">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_4a3bcad7-035b-4592-8e11-74c7fa1ba18d');" ms.cmptyp="CodeSnippet">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_4a3bcad7-035b-4592-8e11-74c7fa1ba18d" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre><span style="color:Blue;">using</span> System;
+
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Example 
+{
+    <span style="color:Blue;">static</span> <span style="color:Blue;">void</span> Main() 
+    {
+        <span style="color:Green;">// Define some integers for a division operation.</span>
+        <span style="color:Blue;">int</span>[] values = { 10, 7 };
+        <span style="color:Blue;">foreach</span> (<span style="color:Blue;">var</span> value <span style="color:Blue;">in</span> values) {
+            <span style="color:Blue;">try</span> {
+               Console.WriteLine(<span style="color:#A31515;">"{0} divided by 2 is {1}"</span>, value, DivideByTwo(value));
+            }
+            <span style="color:Blue;">catch</span> (ArgumentException e) {
+               Console.WriteLine(<span style="color:#A31515;">"{0}: {1}"</span>, e.GetType().Name, e.Message);
+            }
+            Console.WriteLine();
+        }
+    }
+
+    <span style="color:Blue;">static</span> <span style="color:Blue;">int</span> DivideByTwo(<span style="color:Blue;">int</span> num) 
+    {
+        <span style="color:Green;">// If num is an odd number, throw an ArgumentException.</span>
+        <span style="color:Blue;">if</span> ((num &amp; 1) == 1)
+            <span style="color:Blue;">throw</span> <span style="color:Blue;">new</span> ArgumentException(String.Format(<span style="color:#A31515;">"{0} is not an even number"</span>, num), 
+                                      <span style="color:#A31515;">"num"</span>);
+
+        <span style="color:Green;">// num is even, return half of its value.</span>
+        <span style="color:Blue;">return</span> num / 2;
+    }
+}
+<span style="color:Green;">// This example displays the following output:</span>
+<span style="color:Green;">//     10 divided by 2 is 5</span>
+<span style="color:Green;">//     </span>
+<span style="color:Green;">//     ArgumentException: 7 is not an even number</span>
+<span style="color:Green;">//     Parameter name: num</span>
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+</div></div></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Version Information</span></a><div id="Anchor_8" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_8" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><strong>Universal Windows Platform</strong><br>Available since 4.5<br><strong>.NET Framework</strong><br>Available since 1.1<br><strong>Portable Class Library</strong><br>Supported in: <a href="https://msdn.microsoft.com/en-us/library/gg597391.aspx">portable .NET platforms</a><br><strong>Silverlight</strong><br>Available since 2.0<br><strong>Windows Phone Silverlight</strong><br>Available since 7.0<br><strong>Windows Phone</strong><br>Available since 8.1<br></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Thread Safety</span></a><div id="Anchor_9" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_9" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><p>
+        Any public static (<strong>Shared</strong> in Visual Basic) members of this type are thread safe. Any instance members are not guaranteed to be thread safe.
+      </p></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="" role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">See Also</span></a><div id="Anchor_10" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/query/dev11.query?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true#Anchor_10" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><p><a href="https://msdn.microsoft.com/en-us/library/system.exception%28v=vs.110%29.aspx">Exception</a><br><a href="https://msdn.microsoft.com/en-us/library/system%28v=vs.110%29.aspx">System Namespace</a><br><a href="https://msdn.microsoft.com/en-us/library/5b2yeyab%28v=vs.110%29.aspx">Handling and Throwing Exceptions</a><br></p></div></div><a href="#mainBody">Return to top</a><br></div></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input class="libraryFilterInherited" checked="checked" value="Inherit" type="checkbox">Inherited
+        </label>
+        <label>
+            <input class="libraryFilterProtected" checked="checked" value="Protected" type="checkbox">Protected
+        </label>
+    </div>
+</div>
+    
+<input id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." type="hidden">
+
+
+
+    </div>
+<div style="position: fixed; margin-left: 3px; top: 60px;" id="rightNavigationMenu" ms.cmpgrp="right nav">
+    <div id="mobileButtons">
+        
+    </div>
+    <div id="navMain">
+        <div id="closeNavigation">
+            <a class="tocCloseSmall" id="closeButton"></a>
+        </div>
+        <div id="navigationButtons">
+            <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/3w1b3114%28d=printer,v=vs.110%29.aspx?appid=dev11idef1&amp;l=en-us&amp;k=k%28ehargument%29&amp;rd=true" rel="nofollow"><ins class="print"></ins>Print </a>
+            <a id="isd_printABook2" href="https://msdn.microsoft.com/en-us/library/export/help/?returnurl=%2fen-us%2flibrary%2f3w1b3114%28v%3dvs.110%29.aspx%3fappid%3ddev11idef1%26l%3den-us%26k%3dk%28ehargument%29%26rd%3dtrue">
+                <ins class="export"></ins>Export (<span class="count">0</span>)
+            </a>
+            <a id="isdShare" href="#">
+                <ins class="share"></ins>Share
+            </a>
+            <div id="socials" style="display: none">
+                <a class="isdFacebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fsystem.argumentexception%28v%3Dvs.110%29.aspx">
+                    <ins class="facebook"></ins>
+                </a>
+                <a class="isdTwitter" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fsystem.argumentexception%28v%3Dvs.110%29.aspx&amp;text=ArgumentException%20Class%20%28System%29&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fsystem.argumentexception%28v%3Dvs.110%29.aspx">
+                    <ins class="twitter"></ins>
+                </a>
+                <a class="isdGooglePlus" href="https://plus.google.com/share?url=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fsystem.argumentexception%28v%3Dvs.110%29.aspx">
+                    <ins class="googlePlus"></ins>
+                </a>
+            </div>
+        </div>
+        <div id="indoc_toc" style="" ms.cmpgrp="indoc toc">
+            <div id="indoc_title">IN THIS ARTICLE</div>
+            <ul id="indoc_toclist"><li class="active" data-index="0">Inheritance Hierarchy</li><li class="" data-index="1">Syntax</li><li class="" data-index="2">Constructors</li><li class="" data-index="3">Properties</li><li class="" data-index="4">Methods</li><li class="" data-index="5">Events</li><li class="" data-index="6">Remarks</li><li class="" data-index="7">Examples</li><li class="" data-index="8">Version Information</li><li data-index="9">Thread Safety</li><li data-index="10">See Also</li></ul>
+        </div>
+    </div>
+</div>
+<div id="rightNavigationMenuThumbnail" class="rightNavigationMenuThumbnail">
+</div>
+
+
+
+
+
+        </div>
+        <div class="clear"></div>
+
+        
+
+<input name="__RequestVerificationToken" value="W4-126L5sj1UN0nOWwfaRaVRbXzEXad2HvfoTOsIV-kphRxATBRen-hz9FQzrWDHSR2ykktXBHxeflh_N7_QuNkJ8UE1" type="hidden">
+<input id="ratingValueSubmitUrl" value="https://msdn.microsoft.com/en-us/library/feedback/rate/3w1b3114(v=vs.110).aspx" type="hidden">
+<input id="ratingAdditionalSubmitUrl" value="https://msdn.microsoft.com/en-us/library/feedback/additional/3w1b3114(v=vs.110).aspx" type="hidden">
+<input id="isTopicRated" value="false" type="hidden">
+
+
+
+
+    <div id="lib-footer">
+        
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+        
+    <div id="ux-footer" class="" style="" dir="ltr">
+
+
+    <div id="standardRatingBefore" class="clear stdr-container-before"></div>
+    <div style="width: 1349px; margin-left: 0px; display: block;" id="standardRating" class="stdr-container stdr-float" ms.pgarea="body">
+        <div style="display: block;" class="stdr-close"></div>
+        <div class="stdr-vote stdr-content">
+            <div class="stdr-content">
+                <span class="stdr-votetitle">Is this page helpful?</span>
+                <button class="stdr-yes" aria-label="Yes, this page was helpful">Yes</button>
+                <button class="stdr-no" aria-label="No, this page was not helpful">No</button>
+                <input id="s_ratingValue" value="" type="hidden">
+            </div>
+        </div>
+        <div class="stdr-feedback" style="display: none">
+            <div class="stdr-form">
+                <div class="stdr-fieldtitle">Additional feedback?</div>
+                <textarea class="stdr-detail" rows="6" maxlength="1500"></textarea>
+                <div>
+                    <span class="stdr-count"><span class="stdr-charcnt">1500</span> characters remaining</span>
+                    <div class="stdr-buttons">
+                        <button class="stdr-provide" aria-label="Submit my additional feedback">Submit</button>
+                        <button class="stdr-skip" aria-label="Skip additional feedback">Skip this</button>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="stdr-thanks" style="display: none">
+            <div class="stdr-content">
+                <span class="stdr-thankyou">Thank you!</span>
+                <span class="stdr-appreciate">We appreciate your feedback.</span>
+            </div>
+        </div>
+
+        
+        <div id="contentFeedbackQAContainer" style="display: none;"></div>
+    </div>
+    <div id="standardRatingPlaceholder" style="height: 60px;"></div>
+    
+
+        <footer class="top">
+            <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Dev centers</div>
+    <ul class="links">
+      <li>
+        <a href="https://dev.windows.com/" id="LeftLinks_2148_1" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+      </li>
+      <li>
+        <a href="http://dev.office.com/" id="LeftLinks_2148_3" class="office" xmlns="http://www.w3.org/1999/xhtml">Office</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/vstudio" id="LeftLinks_2148_4" class="visualStudio" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+      </li>
+      <li>
+        <a href="http://azure.microsoft.com/en-us/documentation/" target="_blank" id="LeftLinks_2148_12" xmlns="http://www.w3.org/1999/xhtml">Microsoft Azure</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/developer-centers-msdn" id="LeftLinks_2148_5" xmlns="http://www.w3.org/1999/xhtml">More...</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            <div id="rightLinks">
+                <div data-fragmentname="CenterLinks1" id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Learning resources</div>
+    <ul class="links">
+      <li>
+        <a href="http://www.microsoftvirtualacademy.com/" id="CenterLinks1_2151_4" xmlns="http://www.w3.org/1999/xhtml">Microsoft Virtual Academy</a>
+      </li>
+      <li>
+        <a href="http://channel9.msdn.com/" id="CenterLinks1_2151_5" xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/magazine/" id="CenterLinks1_2151_7" xmlns="http://www.w3.org/1999/xhtml">MSDN Magazine</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks2" id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Community</div>
+    <ul class="links">
+      <li>
+        <a href="https://social.msdn.microsoft.com/forums/en-us/home" id="CenterLinks2_2151_8" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+      </li>
+      <li>
+        <a href="http://blogs.msdn.com/b/developer-tools/" id="CenterLinks2_2151_9" xmlns="http://www.w3.org/1999/xhtml">Blogs</a>
+      </li>
+      <li>
+        <a href="http://www.codeplex.com/" id="CenterLinks2_2151_10" xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks3" id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Support</div>
+    <ul class="links">
+      <li>
+        <a href="https://msdn.microsoft.com/hh361695" id="CenterLinks3_2151_11" xmlns="http://www.w3.org/1999/xhtml">Self support</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div class="nth-child-4n" data-fragmentname="CenterLinks4" id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Programs</div>
+    <ul class="links">
+      <li>
+        <a href="https://www.microsoft.com/bizspark/" id="CenterLinks4_2151_13" xmlns="http://www.w3.org/1999/xhtml">BizSpark (for startups)</a>
+      </li>
+      <li>
+        <a href="https://www.dreamspark.com/" id="CenterLinks4_2151_14" xmlns="http://www.w3.org/1999/xhtml">DreamSpark</a>
+      </li>
+      <li>
+        <a href="http://www.imaginecup.com/" id="CenterLinks4_2151_17" xmlns="http://www.w3.org/1999/xhtml">Imagine Cup</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            </div>
+        </footer>
+
+        <footer class="bottom">
+            <span class="localeContainer">
+                
+    <form class="selectLocale" id="selectLocaleForm" action="https://msdn.microsoft.com/en-us/selectlocale-dmc">
+        <input name="fromPage" value="https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2f3w1b3114(v%3dvs.110).aspx%3fappId%3dDev11IDEF1%26l%3dEN-US%26k%3dk(EHArgument)%26rd%3dtrue" type="hidden">
+        <a href="#" onclick="$('#selectLocaleForm').submit();return false;" title="Change your language">United States (English)</a>
+    </form>
+
+
+            </span>
+
+            <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="https://msdn.microsoft.com/newsletter.aspx" id="BottomLinks_2148_7" xmlns="http://www.w3.org/1999/xhtml">Newsletter</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/dn529288" id="BottomLinks_2148_8" xmlns="http://www.w3.org/1999/xhtml">Privacy &amp; cookies</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/cc300389" id="BottomLinks_2148_9" xmlns="http://www.w3.org/1999/xhtml">Terms of use</a>
+      </li>
+      <li>
+        <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" id="BottomLinks_2148_10" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            <span class="logoLegal">
+                <span class="logo"></span>
+                <span class="copyright">© 2016 Microsoft</span>
+            </span>
+        </footer>
+    </div>
+    
+
+    </div>
+
+
+        <div class="footerPrintView">
+            <div class="footerCopyrightPrintView">© 2016 Microsoft</div>
+        </div>
+
+        
+        
+
+        
+        
+        
+
+    <input id="tocPaddingPerLevel" value="17" type="hidden">
+
+
+
+        <input id="MtpsDevice" value="Default" type="hidden">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+
+        
+        
+        
+            
+        
+
+<!--[CDATA[ WebTrends view model not available or IncludeLegacyWebTrendsScriptInGlobal feature flag is off]]-->
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" value="tRcwpxX0ewWkVtYE3TxUWrlUZhXLyyDem9MGZKzYROGbhz2L5fNB4wTLywhfiGDL--tjbNjIjhetM8zCJwI7mohmauY1" type="hidden">
+</div>
+
+
+    </div>
+
+    
+    
+
+    
+
+    
+<script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"js\": \"https://i2-msdn.sec.s-msft.com\", \r\n\t\"css\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"ttf\": \"https://i-msdn.sec.s-msft.com\"\r\n});\r\n/**/" },
+	{ txt: "//\n\n        window.appInsightsId = \u00275eb1b2eb-c47a-497a-a7ac-a1c230b2882f\u0027;\n        //" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:Utilities,1:Layout,2:Header,3:Breadcrumbs,4:LibraryRightNavigationMenu,4:PrintExportButton,5:StandardRating,2:Footer,0:Topic,0:AppInsightsPerf,3:ResponsiveToc,0:ABTestControl,4:WEDCS,3:CmpgrpForHeader,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Centers/Themes/StandardDevCenter/Content:2,/Areas/Library/Content:3,/Areas/Library/Themes/Base/Content:4,/Areas/Global/Content:5\u0026amp;hashKey=B5F7D40C62EAE13EAD28F72217F566AA\u0026amp;v=645FEF37B3DC1FE8A9A6556C55BD7090" },
+	{ url: "https://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026minimumTermLength=2\u0026pgArea=header\u0026brand=Msdn\u0026loc=en-us\u0026focusOnInit=false\u0026emptyWatermark=true\u0026searchButtonTooltip=Search MSDN" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Areas/Epx/Themes/Base/Content/JumpRedirect.js" },
+	{ txt: "MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = \u0027Expand\u0027; MTPS.LocalizedStrings.CollapseButtonTooltip = \u0027Collapse\u0027; MTPS.LocalizedStrings.EnhancedExpandTooltip = \u0027Click to expand. Double-click to expand all.\u0027; MTPS.LocalizedStrings.EnhancedCollapseTooltip = \u0027Click to collapse. Double-click to collapse all.\u0027; MTPS.LocalizedStrings.ExpandAllButtonTooltip = \u0027Expand All\u0027; MTPS.LocalizedStrings.CollapseAllButtonTooltip = \u0027Collapse All\u0027;" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:LibraryMemberFilter,1:Toc_Fixed,1:CodeSnippet,1:TopicNotInScope,0:ResponsiveSupport,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1\u0026amp;hashKey=47E182D3D8C308F8FDBFA84F991BBB2F\u0026amp;v=645FEF37B3DC1FE8A9A6556C55BD7090" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+
+<div id="overlayMask"></div><script src="ArgumentException%20Class%20%28System%29_files/broker-config.js"></script></body></html>
